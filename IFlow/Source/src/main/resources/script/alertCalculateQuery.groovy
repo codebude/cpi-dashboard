@@ -17,18 +17,30 @@ The methods available are:
  */
 import com.sap.gateway.ip.core.customdev.util.Message;
 import java.util.HashMap;
+import groovy.json.*;
+import groovy.time.TimeCategory;
+import java.security.MessageDigest;
+
 def Message processData(Message message) {
   
-    //Setup query
-    def queries = message.getProperties().get("cacheMplQueries")
-    if (queries != null && queries.size() > 0){
-        def nextQuery = queries.pop()
-        message.setProperty("cacheMplQueries",queries)
-        message.setProperty("mplQuery",nextQuery)
-        message.setProperty("mplCacheId",nextQuery.hash)
+    //Calculate query
+    def body = message.getBody(java.lang.String) as String
+    
+    def endDate = new Date()
+    def fEndDate = endDate.format("yyyy-MM-dd'T'HH:mm:ss")
+    message.setProperty("alertLastRunDateNew", fEndDate)
+    
+    def queryStr = ""
+    if (body.length() > 0){
+        queryStr = "\$filter=LogStart ge datetime'${body}' and LogStart le datetime'${fEndDate}'"
+    } else {
+        def startDate = new Date()
+        use (TimeCategory){
+            startDate = startDate - 1.hours
+        }
+        queryStr = "\$filter=LogStart ge datetime'${fStartDate}' and LogStart le datetime'${fEndDate}'"
     }
-    
-    message.setHeader("Accept", "application/json");
-    
+    message.setProperty("alertQueryMpl", queryStr)
+   
     return message;
 }

@@ -24,12 +24,14 @@
       <additionalMetadata/>
    </parameter><parameter>
       <key/>
-      <name>SAP_CPI_AUTH_API_CREDENTIALS_BASICAUTH</name>
+      <name>ALERT_MAIL_SERVER_AUTHMODE</name>
       <type>xsd:string</type>
       <isRequired>false</isRequired>
       <constraint/>
       <description/>
-      <additionalMetadata/>
+      <additionalMetadata>
+         <isCombobox>true</isCombobox>
+      </additionalMetadata>
    </parameter><parameter>
       <key/>
       <name>DASHBOARD_URL_BASE</name>
@@ -56,14 +58,6 @@
       <additionalMetadata/>
    </parameter><parameter>
       <key/>
-      <name>ROLE_LOG_AND_FILE_ACCESS</name>
-      <type>xsd:string</type>
-      <isRequired>false</isRequired>
-      <constraint/>
-      <description/>
-      <additionalMetadata/>
-   </parameter><parameter>
-      <key/>
       <name>SAP_CPI_AUTH_API_CREDENTIALS</name>
       <type>xsd:string</type>
       <isRequired>false</isRequired>
@@ -72,7 +66,73 @@
       <additionalMetadata/>
    </parameter><parameter>
       <key/>
-      <name>SAP_CPI_TENANT_TECHNICALNAME</name>
+      <name>ALERT_MAIL_SERVER_TLSMODE</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata>
+         <isCombobox>true</isCombobox>
+      </additionalMetadata>
+   </parameter><parameter>
+      <key/>
+      <name>ALERT_MAIL_SERVER_AUTH</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>ALERT_MAIL_SENDER</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>CPI_Dashboard_Cache</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>ALERT_MAIL_SERVER_HOSTNAME</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>SAP_CPI_AUTH_API_CREDENTIALS_BASICAUTH</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>ALERT_MAIL_RECEIVER</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>SAP_CPI_AUTH_API_CREDENTIALS_OAUTH</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>ROLE_LOG_AND_FILE_ACCESS</name>
       <type>xsd:string</type>
       <isRequired>false</isRequired>
       <constraint/>
@@ -88,10 +148,36 @@
       <additionalMetadata/>
    </parameter><parameter>
       <key/>
+      <name>SAP_CPI_TENANT_TECHNICALNAME</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>ALERT_MAIL_SERVER_CREDS</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata/>
+   </parameter><parameter>
+      <key/>
+      <name>ALERT_MAIL_SERVER_SECURITYMODE</name>
+      <type>xsd:string</type>
+      <isRequired>false</isRequired>
+      <constraint/>
+      <description/>
+      <additionalMetadata>
+         <isCombobox>true</isCombobox>
+      </additionalMetadata>
+   </parameter><parameter>
+      <key/>
       <name>ROLE_SECURITY_MAT_ACCESS</name>
       <type>xsd:string</type>
       <isRequired>false</isRequired>
       <constraint/>
       <description/>
       <additionalMetadata/>
-   </parameter><param_references><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_BASICAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="SAP_CP.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CP_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CP_HOST" param_key="SAP_CP_HOST"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CPI_TENANT_TECHNICALNAME" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="SAP_CP.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CP_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CP_HOST" param_key="SAP_CP_HOST"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CPI_TENANT_TECHNICALNAME" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="Webbrowser" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="DASHBOARD_URL_BASE"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="Webbrowser" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="DASHBOARD_URL_BASE"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_BASICAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="SAP_CP.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CP_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CP_HOST" param_key="SAP_CP_HOST"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CPI_TENANT_TECHNICALNAME" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="Webbrowser" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="DASHBOARD_URL_BASE"/><reference attribute_category="Webbrowser" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="DASHBOARD_URL_BASE"/></param_references></parameters>
+   </parameter><param_references><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_BASICAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_OAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="MAIL_SERVER" attribute_id="ctype::AdapterVariant/cname::Mail/tp::SMTP/mp::None/direction::Receiver/version::1.6.0/attrId::server" attribute_uilabel="Address" param_key="ALERT_MAIL_SERVER_HOSTNAME"/><reference attribute_category="MAIL_SERVER" attribute_id="ctype::AdapterVariant/cname::Mail/tp::SMTP/mp::None/direction::Receiver/version::1.6.0/attrId::auth" attribute_uilabel="Authentication" param_key="ALERT_MAIL_SERVER_AUTHMODE"/><reference attribute_category="MAIL_SERVER" attribute_id="ctype::AdapterVariant/cname::Mail/tp::SMTP/mp::None/direction::Receiver/version::1.6.0/attrId::ssl" attribute_uilabel="Protection" param_key="ALERT_MAIL_SERVER_SECURITYMODE"/><reference attribute_category="MAIL_SERVER" attribute_id="ctype::AdapterVariant/cname::Mail/tp::SMTP/mp::None/direction::Receiver/version::1.6.0/attrId::user" attribute_uilabel="Credential Name" param_key="ALERT_MAIL_SERVER_CREDS"/><reference attribute_category="Webbrowser" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="DASHBOARD_URL_BASE"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_OAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="SAP_CP.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CP_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CP_HOST" param_key="SAP_CP_HOST"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CPI_TENANT_TECHNICALNAME" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="Webbrowser" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="DASHBOARD_URL_BASE"/><reference attribute_category="Webbrowser" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="DASHBOARD_URL_BASE"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="SAP_CP.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CP_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CP_HOST" param_key="SAP_CP_HOST"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CPI_TENANT_TECHNICALNAME" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="SAP_CP.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CP_AUTH_API_CREDENTIALS"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CP_HOST" param_key="SAP_CP_HOST"/><reference attribute_category="SAP_CP" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="SAP_CPI_TENANT_TECHNICALNAME" param_key="SAP_CPI_TENANT_TECHNICALNAME"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_OAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_OAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="Webbrowser" attribute_id="/attrId::urlPath" attribute_uilabel="" param_key="DASHBOARD_URL_BASE"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_OAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/><reference attribute_category="SAP_CPI.Receiver.Auth" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::credentialName" attribute_uilabel="Credential Name" param_key="SAP_CPI_AUTH_API_CREDENTIALS_BASICAUTH"/><reference attribute_category="SAP_CPI" attribute_id="ctype::AdapterVariant/cname::HTTP/tp::HTTP/mp::None/direction::Receiver/version::1.7.2/attrId::httpAddressWithoutQuery" attribute_uilabel="Address" param_key="SAP_CPI_HOST"/></param_references></parameters>

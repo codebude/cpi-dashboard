@@ -23,11 +23,6 @@ import java.security.MessageDigest;
 
 def Message processData(Message message) {
   
-    //Store token
-    def body = message.getBody(java.lang.String) as String
-    def tokenResponse = new JsonSlurper().parseText(body)
-    message.setProperty("accessToken", "${tokenResponse.access_token}");
-  
     //Calculate queries
     def queries = []
     0.upto(47, { i->
