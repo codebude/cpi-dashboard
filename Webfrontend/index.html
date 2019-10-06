@@ -325,7 +325,18 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-            <a id="btn-print" href="#" style="background-color:#5d6875" class="text-white d-none d-sm-inline-block btn btn-sm shadow-sm"><i class="fas fa-print fa-sm text-white-50"></i> Print Report</a>
+            <div>
+              <a id="btn-print" href="#" style="background-color:#5d6875" class="text-white d-none d-sm-inline-block btn btn-sm shadow-sm"><i class="fas fa-print fa-sm text-white-50"></i> Print Report</a>
+              <a id="btn-auto-refresh" data="inactive" href="#" style="background-color:#5d6875" class="text-white d-none d-sm-inline-block btn btn-sm shadow-sm"><i class="fas fa-square fa-sm text-white-50"></i> Auto refresh every</a>
+              <form class="form-inline d-none d-sm-inline-block">
+                <div class="input-group input-group-sm">
+                  <input id="inp-auto-refresh" type="text" class="form-control form-control-sm" style="width:60px" value="60" pattern="\d+" required>
+                  <div class="input-group-append">
+                    <span class="input-group-text">seconds</span>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
 
           <!-- Content Row - 4 columns mini kacheln -->
@@ -800,22 +811,47 @@
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->  	
+  <!-- Scripts for local development scripts -->  	
   <script src="../../status.json"></script>
   <script src="../../securitymaterial.json"></script>
+  <script src="../../alertrules.json"></script>
 
   <script type="text/javascript">
+  var autoRefreshTimer
+
 	$(document).ready(function(){
 		
 		$('#btn-print').click(function(){
 			window.print()
 		})
 
+    $('#btn-auto-refresh').click(function(){
+      var mode = $(this).attr('data')
+      if (mode == "inactive"){
+        $(this).attr('data', 'active')
+        $(this).find('i').removeClass('fa-square')
+        $(this).find('i').addClass('fa-check-square')
+        $('#inp-auto-refresh').attr('readonly', true)
+        var intVal = parseInt($('#inp-auto-refresh').val()) * 1000
+        autoRefreshTimer = setInterval(loadDashboardData, intVal)
+      } else {
+        $(this).attr('data', 'inactive')
+        $(this).find('i').removeClass('fa-check-square')
+        $(this).find('i').addClass('fa-square')
+        $('#inp-auto-refresh').attr('readonly', false)        
+        clearInterval(autoRefreshTimer)
+      }
+    })
+
     $('#accordionSidebar .nav-link').click(function(){
       $(".nav-item").removeClass("active")
       $(this).parent().addClass("active")
     })
 
+    loadDashboardData()		
+	})
+
+  function loadDashboardData(){
     if (window.location.protocol == "file:"){
       //developer mode
       renderPage(sampleStatus)
@@ -837,9 +873,8 @@
           $('.loading').fadeOut(500)
           $('#modal-error').modal('show')
       });
-    } 
-		
-	})
+    }     
+  }
 	
 	function renderPage(data){		
     try{      
@@ -1086,7 +1121,11 @@
 
       //Render footer
       var contFooter = $('.sticky-footer span').html()
-      $('.sticky-footer span').html(`${contFooter} | CPI query runtime: ${data[4].queryRuntime}`)
+      if (contFooter.indexOf(' | CPI query runtime') > -1){
+        $('.sticky-footer span').html(`${contFooter.substring(0,contFooter.indexOf(' | CPI query runtime'))} | CPI query runtime: ${data[4].queryRuntime}`)
+      } else {
+        $('.sticky-footer span').html(`${contFooter} | CPI query runtime: ${data[4].queryRuntime}`)
+      }            
     }
     catch (ex){
       alert(ex)
