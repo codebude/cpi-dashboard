@@ -18,33 +18,15 @@ The methods available are:
 import com.sap.gateway.ip.core.customdev.util.Message;
 import java.util.HashMap;
 import groovy.json.*;
-import groovy.time.TimeCategory;
-import java.security.MessageDigest;
 
 def Message processData(Message message) {
   
-    //Calculate query
     def body = message.getBody(java.lang.String) as String
+    def alertJson = new JsonSlurper().parseText(body)
     
-    def endDate = new Date()
-    def fEndDate = endDate.format("yyyy-MM-dd'T'HH:mm:ss")
-    message.setProperty("alertLastRunDateNew", fEndDate)
-    
-    def queryStr = ""
-    if (body.length() == 19){
-        message.setProperty("alertLastRunBeginDate", body)
-        queryStr = "\$filter=LogStart ge datetime'${body}' and LogStart le datetime'${fEndDate}'"
-    } else {
-        def startDate = new Date()
-        use (TimeCategory){
-            startDate = startDate - 1.hours
-        }
-        def fStartDate = startDate.format("yyyy-MM-dd'T'HH:mm:ss")
-        message.setProperty("alertLastRunBeginDate", fStartDate)
-        queryStr = "\$filter=LogStart ge datetime'${fStartDate}' and LogStart le datetime'${fEndDate}'"
-    }
-    message.setProperty("alertQueryMpl", queryStr)
-    message.setHeader("Accept", "application/json")
-   
+    message.setProperty("numAlertRules", alertJson.rules.size())
+    message.setProperty("alertConfig", JsonOutput.toJson(alertJson))
+    message.setBody("")
+  
     return message;
 }
