@@ -818,7 +818,7 @@
   </div>
 
   <!-- Confirm modal -->
-  <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -835,30 +835,155 @@
 
   <!-- Credits modal -->
   <div class="modal fade" id="modal-credits" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Credits</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div id="modal-credits-body" class="modal-body">
-            This page is based on the astonishing work of the following projects/teams.<br/><br/>
-            <ul>
-              <li><a href="https://jquery.com/" target="_blank">jQuery Framework <i class="fas fa-external-link-square-alt"></i></a></li>
-              <li><a href="https://jqueryui.com/easing/" target="_blank">jQuery UI (Easing) Library <i class="fas fa-external-link-square-alt"></i></a></li>
-              <li><a href="https://www.chartjs.org/" target="_blank">Chart.js Library <i class="fas fa-external-link-square-alt"></i></a></li>              
-              <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap Framework <i class="fas fa-external-link-square-alt"></i></a></li>
-              <li><a href="https://startbootstrap.com/themes/sb-admin-2/" target="_blank">SB Admin 2 Template <i class="fas fa-external-link-square-alt"></i></a></li>
-            </ul>            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Credits</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="modal-credits-body" class="modal-body">
+          This page is based on the astonishing work of the following projects/teams.<br/><br/>
+          <ul>
+            <li><a href="https://jquery.com/" target="_blank">jQuery Framework <i class="fas fa-external-link-square-alt"></i></a></li>
+            <li><a href="https://jqueryui.com/easing/" target="_blank">jQuery UI (Easing) Library <i class="fas fa-external-link-square-alt"></i></a></li>
+            <li><a href="https://www.chartjs.org/" target="_blank">Chart.js Library <i class="fas fa-external-link-square-alt"></i></a></li>              
+            <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap Framework <i class="fas fa-external-link-square-alt"></i></a></li>
+            <li><a href="https://startbootstrap.com/themes/sb-admin-2/" target="_blank">SB Admin 2 Template <i class="fas fa-external-link-square-alt"></i></a></li>
+          </ul>            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Alerting modal -->
+  <div class="modal fade" id="modal-alerting" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div style="width:50%;padding:0;max-width:75%" class="modal-dialog modal-dialog-centered" role="document">
+      <div style="width:99%" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Configure alerting rule</h5>
+          <button type="button" class="close" id="modal-alerting-close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="modal-alerting-body" style="padding:30px" class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label for="alert-conf-name" class="col-3 col-form-label">Alert rule name</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-name">
+                <small class="text-muted">The name must be unique within all alert rules.</small>
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="alert-conf-type" class="col-3 col-form-label">Type of alert</label>
+              <div class="col-9">
+                <select class="form-control" id="alert-conf-type">
+                  <option>Message</option>
+                  <option>Certificate</option>
+                </select>
+                <small class="text-muted">Message=Check for message state, Certificate=Check certificate's validity.</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">State of rule</div>
+              <div class="col-9">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="alert-conf-active">
+                  <label class="form-check-label" for="alert-conf-active">
+                    active
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr/>
+            <div class="form-group row alert-message-only">
+              <label for="alert-conf-msgstate" class="col-3 col-form-label">Message state</label>
+              <div class="col-9">
+                <select class="form-control" id="alert-conf-msgstate">
+                  <option>ALL</option>
+                  <option>FAILED</option>
+                  <option>COMPLETED</option>
+                  <option>RETRY</option>
+                  <option>PROCESSING</option>
+                  <option>ESCALATED</option>                  
+                </select>
+              </div>
+            </div>
+            <div class="form-group row alert-message-only">
+              <label for="alert-conf-sender" class="col-3 col-form-label">Sender system</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-sender">
+                <small class="text-muted">Leave empty to match all. Wildcards via * are possible.</small>
+              </div>              
+            </div>
+            <div class="form-group row alert-message-only">
+              <label for="alert-conf-receiver" class="col-3 col-form-label">Receiver system</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-receiver">
+                <small class="text-muted">Leave empty to match all. Wildcards via * are possible.</small>
+              </div>
+            </div>
+            <div class="form-group row alert-message-only">
+              <label for="alert-conf-artifact" class="col-3 col-form-label">Artifact ID</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-artifact">
+                <small class="text-muted">Leave empty to match all. Wildcards via * are possible.</small>
+              </div>
+            </div>
+            <div class="form-group row alert-cert-only" style="display:none">
+              <label for="alert-conf-certificate" class="col-3 col-form-label">Certificate ID</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-certificate">
+                <small class="text-muted">Leave empty to match all. Wildcards via * are possible.</small>
+              </div>
+            </div>
+            <div class="form-group row alert-cert-only" style="display:none">
+              <label for="alert-conf-certdays" class="col-3 col-form-label">Warn X days before end of validity</label>
+              <div class="col-9">
+                <input type="number" class="form-control" id="alert-conf-certdays" value="14" min="1" max="365">
+              </div>
+            </div>
+            <hr/>
+            <div class="form-group row">
+              <label for="alert-conf-mail-receiver" class="col-3 col-form-label">Alert mail receiver(s)</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-mail-receiver">
+                <small class="text-muted">Divide multiple mail addresses by colons (;).</small>
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="alert-conf-mail-ccreceiver" class="col-3 col-form-label">Alert mail CC receiver(s)</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-mail-ccreceiver">
+                <small class="text-muted">Divide multiple mail addresses by colons (;).</small>
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="alert-conf-mail-subject" class="col-3 col-form-label">Alert mail subject line</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-mail-subject">
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="alert-conf-mail-body" class="col-3 col-form-label">Alert mail user body/message</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-mail-body">
+              </div>              
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="modal-alerting-save" type="button" class="btn btn-secondary">Save</button>
+          <button id="modal-alerting-cancel" type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -883,8 +1008,46 @@
   var initialLoad = true
   var cacheAlertRules
 
+  function cleanAlertConfig(){
+    $('#alert-conf-name').prop('readonly', false)
+    $('#alert-conf-type').prop('disabled', false)
+    $('#modal-alerting-body input').val('')
+    $('#alert-conf-type').val('Message')
+    $('#alert-conf-msgstate').val('ALL')
+    $('#alert-conf-active').prop("checked", false)
+    $('#alert-conf-certdays').val(14)
+    $('.alert-message-only').show()
+    $('.alert-cert-only').hide()
+  }
+
 	$(document).ready(function(){
 		
+    //DEBUG
+    //$('#modal-alerting').modal('show')
+
+    //Change alert config GUI in dependency to alert type
+    $('#alert-conf-type').on('change', function(){
+      if ($(this).val() == "Message"){
+        $('.alert-message-only').show()
+        $('.alert-cert-only').hide()
+      } else {
+        $('.alert-message-only').hide()
+        $('.alert-cert-only').show()
+      }
+    })
+
+    $('#modal-alerting-save').click(function(){
+      saveAlertRule()
+    })
+
+    $('#modal-alerting-cancel').click(function(){
+      cancelAlertRule()
+    })
+
+    $('#modal-alerting-close').click(function(){
+      cancelAlertRule()
+    })
+
 		$('#btn-print').click(function(){
 			window.print()
 		})
@@ -1254,13 +1417,14 @@
       </tr>`
     })
     cacheAlertRules = alertRules
-    $('#tbl-alerting-rows').html(htmlTblAlertRows)    
+    $('#tbl-alerting-rows').html(htmlTblAlertRows)
+    $('.loading').fadeOut(250)
   }
 
   function alertDelete(shallDelete, name){
     $('#modal-confirm').modal('hide')
     if (shallDelete){
-      
+      $('.loading').fadeIn(250);
       try {
         cacheAlertRules.rules = cacheAlertRules.rules.filter(function( obj ) {
           return obj.name !== name;
@@ -1281,6 +1445,7 @@
             console.log(cacheAlertRules)
             loadAlertRules()
         }).fail(function(jqxhr, textStatus, error) {
+            $('.loading').fadeOut(250)
             console.log(textStatus)
             console.log(error)
             var err = jqxhr.responseJSON[0].error
@@ -1290,18 +1455,126 @@
         });        
       }
       catch (ex){
+        $('.loading').fadeOut(250)
         alert(ex)
         console.log(ex)
       }        
     }
   }
 
+  function saveAlertRule(){
+    var editMode = $('#alert-conf-name').prop('readonly')
+    if (!editMode && cacheAlertRules.rules.filter(function( obj ) { return obj.name == $('#alert-conf-name').val(); }).length > 0){
+      alert("Alert rule with this name already exists. Please set unique name.")
+      return
+    }
+    if ($('#alert-conf-type').val() == "Certificate" && ($('#alert-conf-certdays').val() < 1 || $('#alert-conf-certdays').val() > 365)){
+      alert("Certificate warning period must be within 1 and 365 days.")
+      return
+    }
+
+    //Data seems to be valid, let's create the alert rule
+    $('.loading').fadeIn(250);
+    $('#modal-alerting').modal('hide')
+    var newRule = {}
+    newRule.name = $('#alert-conf-name').val() 
+    newRule.ruletype = $('#alert-conf-type').val().toLowerCase()
+    newRule.active = $('#alert-conf-active').prop('checked')    
+    if ($('#alert-conf-type').val() == "Message"){
+      newRule.state = $('#alert-conf-msgstate').val()
+      newRule.sender = $('#alert-conf-sender').val()
+      newRule.receiver = $('#alert-conf-receiver').val()
+      newRule.artifact_id = $('#alert-conf-artifact').val()
+    } else {
+      newRule.certificate_id = $('#alert-conf-certificate').val()
+      newRule.warn_days_before = parseInt($('#alert-conf-certdays').val())
+    }
+    newRule.alert_receiver = $('#alert-conf-mail-receiver').val()
+    newRule.alert_receiver_cc = $('#alert-conf-mail-ccreceiver').val()
+    newRule.alert_receiver_title = $('#alert-conf-mail-subject').val()
+    newRule.alert_receiver_body = $('#alert-conf-mail-body').val()
+
+    if(editMode){
+      //remove current
+      cacheAlertRules.rules = cacheAlertRules.rules.filter(function( obj ) {
+        return obj.name !== $('#alert-conf-name').val();
+      });      
+    }
+    //add new
+    cacheAlertRules.rules.push(newRule)
+
+    try {
+        $.ajax({
+          xhrFields: {
+              withCredentials: true
+          },        
+          dataType: "json",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(cacheAlertRules),
+          url: "<<ENDPOINT_ALERT>>"
+        }).done(function() {
+            console.log("Got response from CPI for updating alert rules");
+            console.log(`Deleted alert rule: ${name}`)
+            console.log(cacheAlertRules)
+            loadAlertRules()
+        }).fail(function(jqxhr, textStatus, error) {
+            $('.loading').fadeOut(250)
+            console.log(textStatus)
+            console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError = `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
+        });        
+      }
+      catch (ex){
+        $('.loading').fadeOut(250)
+        alert(ex)
+        console.log(ex)
+      }        
+  }
+
+  function cancelAlertRule(){    
+    $('#modal-alerting').modal('hide')
+    cleanAlertConfig()
+  }
+
+  function showAlertEditor(id){
+    cleanAlertConfig()
+    if (id !== undefined){
+      var rule = cacheAlertRules.rules.filter(function( obj ) { return obj.name == id; })[0];  
+      $('#alert-conf-name').prop('readonly', true)
+      $('#alert-conf-type').prop('disabled', true)
+
+      $('#alert-conf-name').val(rule.name) 
+      $('#alert-conf-type').val((rule.ruletype == "message" ? "Message" : "Certificate"))
+      $('#alert-conf-active').prop('checked', rule.active)
+      if (rule.ruletype == "message"){
+        $('#alert-conf-msgstate').val(rule.state)
+        $('#alert-conf-sender').val(rule.sender)
+        $('#alert-conf-receiver').val(rule.receiver)
+        $('#alert-conf-artifact').val(rule.artifact_id)
+      } else {
+        $('.alert-message-only').hide()
+        $('.alert-cert-only').show()
+        $('#alert-conf-certificate').val(rule.certificate_id)
+        $('#alert-conf-certdays').val(rule.warn_days_before)
+      }
+      $('#alert-conf-mail-receiver').val(rule.alert_receiver)
+      $('#alert-conf-mail-ccreceiver').val(rule.alert_receiver_cc)
+      $('#alert-conf-mail-subject').val(rule.alert_receiver_title)
+      $('#alert-conf-mail-body').val(rule.alert_receiver_body)
+    }
+    $('#modal-alerting').modal('show')
+  }
+
   function alertCreate(){
-    alert("create alert")
+    showAlertEditor()
   }
 
   function alertEdit(name){
-    alert(`Edit ${name}`)
+    showAlertEditor(name)
   }
 
   function loadSecurityMaterial(){
