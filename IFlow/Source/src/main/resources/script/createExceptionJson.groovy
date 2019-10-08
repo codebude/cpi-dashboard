@@ -29,6 +29,7 @@ def Message processData(Message message) {
     def httpStatusCode = mapHdr.get("CamelHttpResponseCode");
     if (httpStatusCode == null || httpStatusCode == 200){
         httpStatusCode = 500;
+        message.setHeader("CamelHttpResponseCode", httpStatusCode)
     }
     def ex = mapProp.get("CamelExceptionCaught")
     def exCaughtText = ex.getMessage()
