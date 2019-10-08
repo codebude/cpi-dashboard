@@ -170,6 +170,11 @@
 	        float: left;
 	    }
 
+      .header-fixed-4 > thead > tr > th {
+	        width: 25%;
+	        float: left;
+	    }
+
 	    .header-fixed-2 > tbody > tr > td {
 	        width: 50%;
 	        float: left;
@@ -177,6 +182,11 @@
 
 	    .header-fixed-3 > tbody > tr > td {
 	        width: 33%;
+	        float: left;
+	    }
+
+      .header-fixed-4 > tbody > tr > td {
+	        width: 25%;
 	        float: left;
 	    }
 
@@ -299,6 +309,12 @@
         <a class="nav-link" href="#repository">
           <i class="fas fa-fw fa-code-branch"></i>
           <span>Artifacts status</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#alerting">
+          <i class="fas fa-fw fa-bell"></i>
+          <span>Alerting configuration</span>
         </a>
       </li>
       
@@ -709,6 +725,36 @@
               </div>
           </div>
 
+           <!-- Content row - alerting configuration -->
+           <div class="row">
+              <div class="col-lg-12 mb-4">
+                  <!-- Alerting -->
+                  <div id="alerting" class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-secondary"><i class="fas fa-bell"></i> Alerting configuration</h6>
+                    </div>
+                    <div id="alerting-container" class="card-body">
+                        <div class="mt-0 mb-4 card bg-secondary shadow">
+                          <div class="text-white card-body p-2">
+                            <button id="btn-alerting-add" class="btn btn-success"><i class="fas fa-plus"></i> Add alerting rule</button>
+                          </div>
+                        </div>
+                        <table id="tbl-alerting" class="table table-sm table-hover header-fixed header-fixed-4">
+                          <thead>
+                            <tr>                            
+                              <th scope="col">Name</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Active</th>                          
+                              <th scope="col">Action</th>         
+                            </tr>
+                          </thead>
+                          <tbody style="height:400px;" id="tbl-alerting-rows"></tbody>
+                        </table>                  
+                    </div>
+                  </div>
+                </div>
+            </div>
+
         </div>
         <!-- /.container-fluid -->
 
@@ -771,6 +817,22 @@
     </div>
   </div>
 
+  <!-- Confirm modal -->
+  <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="modal-confirm-header" class="modal-title">Title</h5>
+        </div>
+        <div id="modal-confirm-body" class="modal-body"></div>
+        <div class="modal-footer">
+          <button id="modal-confirm-yes" type="button" class="btn btn-secondary">Yes</button>
+          <button id="modal-confirm-no" type="button" class="btn btn-secondary">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Credits modal -->
   <div class="modal fade" id="modal-credits" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -811,13 +873,15 @@
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->  	
+  <!-- Scripts for local development scripts -->  	
   <script src="../../status.json"></script>
   <script src="../../securitymaterial.json"></script>
+  <script src="../../alertrules.json"></script>
 
   <script type="text/javascript">
   var autoRefreshTimer
   var initialLoad = true
+  var cacheAlertRules
 
 	$(document).ready(function(){
 		
@@ -825,6 +889,9 @@
 			window.print()
 		})
 
+    $('#btn-alerting-add').click(function (){
+      alertCreate()
+    })
 
     $('#btn-auto-refresh').click(function(){
       var mode = $(this).attr('data')
@@ -874,7 +941,7 @@
           $('.loading').fadeOut(500)
           $('#modal-error').modal('show')
       });
-    } 
+    }     
   }
 	
 	function renderPage(data){		
@@ -1143,6 +1210,100 @@
 		
 	}
 
+  function loadAlertRules(){
+    try {
+      if (window.location.protocol == "file:"){        
+        renderAlertRules(alertrules)
+      } else {
+        $.ajax({
+          xhrFields: {
+              withCredentials: true
+          },        
+          url: "<<ENDPOINT_ALERT>>"
+        }).done(function(alertrules) {
+            console.log("Got response from CPI for alertrules");
+            renderAlertRules(alertrules);
+        }).fail(function(jqxhr, textStatus, error) {
+            console.log(textStatus)
+            console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError = `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
+        });
+      }  
+    }
+    catch (ex){
+      alert(ex)
+      console.log(ex)
+    }    
+  }
+
+  function renderAlertRules(alertRules){
+    var htmlTblAlertRows = ""
+    alertRules.rules.sort(function(a, b) {
+      var x = a.name.toLowerCase(), y = b.name.toLowerCase();
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+    $.each(alertRules.rules, function(i,v){    
+      htmlTblAlertRows += `<tr>                            
+        <td scope="col">${v.name}</td>
+        <td scope="col">${v.ruletype}</td>
+        <td scope="col"><span class="text-${(v.active ? "success" : "danger")}">${v.active}</span></td>
+        <td scope="col"><button onClick="alertEdit('${v.name}')" class="btn btn-sm btn-secondary"><i class="fas fa-edit"></i> Edit</button>&nbsp;<button onClick="confirm('Do you really want to delete the ${v.name} alerting rule?', 'Are you sure?', alertDelete, '${v.name}')" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button></td>
+      </tr>`
+    })
+    cacheAlertRules = alertRules
+    $('#tbl-alerting-rows').html(htmlTblAlertRows)    
+  }
+
+  function alertDelete(shallDelete, name){
+    $('#modal-confirm').modal('hide')
+    if (shallDelete){
+      
+      try {
+        cacheAlertRules.rules = cacheAlertRules.rules.filter(function( obj ) {
+          return obj.name !== name;
+        });
+      
+        $.ajax({
+          xhrFields: {
+              withCredentials: true
+          },        
+          dataType: "json",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(cacheAlertRules),
+          url: "<<ENDPOINT_ALERT>>"
+        }).done(function() {
+            console.log("Got response from CPI for updating alert rules");
+            console.log(`Deleted alert rule: ${name}`)
+            console.log(cacheAlertRules)
+            loadAlertRules()
+        }).fail(function(jqxhr, textStatus, error) {
+            console.log(textStatus)
+            console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError = `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
+        });        
+      }
+      catch (ex){
+        alert(ex)
+        console.log(ex)
+      }        
+    }
+  }
+
+  function alertCreate(){
+    alert("create alert")
+  }
+
+  function alertEdit(name){
+    alert(`Edit ${name}`)
+  }
+
   function loadSecurityMaterial(){
     try {
       $('.loading').fadeIn(250)
@@ -1160,6 +1321,10 @@
         }).fail(function(jqxhr, textStatus, error) {
             console.log(textStatus)
             console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError = `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
         });
       }  
     }
@@ -1406,6 +1571,26 @@
 		return parseFloat(Math.round(inp * 100) / 100).toFixed(2).padStart(5,"\u00A0");
   }
   
+  function confirm(text, title, callback, param){
+    $('#modal-confirm-yes').off("click")
+    $('#modal-confirm-yes').click(function(){
+      if (param === undefined)
+        callback(true)
+      else
+        callback(true, param)
+    })
+    $('#modal-confirm-no').off("click")
+    $('#modal-confirm-no').click(function(){
+      if (param === undefined)
+        callback(false)
+      else
+        callback(false, param)
+    })
+    $('#modal-confirm-header').html(title)
+    $('#modal-confirm-body').html(text)
+    $('#modal-confirm').modal('show')
+  }
+
   function showCredits(){
     $('#modal-credits').modal('show')
   }
