@@ -3,18 +3,18 @@
 ROLE_SECURITY_MAT_ACCESS=de.realcore.cpi.dashboard.security
 SAP_CPI_AUTH_API_CREDENTIALS_OAUTH=oauth_cpi_oauth_client_credentials
 CACHE_DATASTORE_NAME=CPI_Dashboard_Cache
-SAP_CPI_HOST=p0401-tmn.hci.eu1.hana.ondemand.com
+SAP_CPI_HOST=
 ALERT_TIMER=<row><cell>dayValue</cell><cell></cell></row><row><cell>monthValue</cell><cell></cell></row><row><cell>yearValue</cell><cell></cell></row><row><cell>dateType</cell><cell>DAILY</cell></row><row><cell>secondValue</cell><cell>0</cell></row><row><cell>minutesValue</cell><cell></cell></row><row><cell>hourValue</cell><cell></cell></row><row><cell>toInterval</cell><cell>24</cell></row><row><cell>fromInterval</cell><cell>0</cell></row><row><cell>OnEveryHour</cell><cell>12</cell></row><row><cell>timeType</cell><cell>TIME_HOUR_INTERVAL</cell></row><row><cell>timeZone</cell><cell>( UTC 0\:00 ) Greenwich Mean Time(Etc/GMT)</cell></row><row><cell>triggerType</cell><cell>cron</cell></row><row><cell>noOfSchedules</cell><cell>1</cell></row><row><cell>schedule1</cell><cell>0+0+0,12+?+*+*+*&amp;trigger.timeZone\=Etc/GMT</cell></row>
-ALERT_MAIL_SENDER=de.realcore.herrmann@gmail.com
+ALERT_MAIL_SENDER=
 ROLE_GENERAL_ACCESS=de.realcore.cpi.dashboard
-ALERT_MAIL_SERVER_HOSTNAME=smtp.gmail.com\:587
-SAP_CPI_TENANT_TECHNICALNAME=a57a86090
+ALERT_MAIL_SERVER_HOSTNAME=
+SAP_CPI_TENANT_TECHNICALNAME=
 SAP_CP_HOST=api.eu1.hana.ondemand.com
 ROLE_LOG_AND_FILE_ACCESS=de.realcore.cpi.dashboard.logfile
-ALERT_MAIL_SERVER_CREDS=gmail_de.realcore.herrmann
+ALERT_MAIL_SERVER_CREDS=
 CPU_USAGE_MESEASUREMENT_TIME_IN_MS=3000
-ALERT_MAIL_SERVER_SECURITYMODE=starttls_mandatory
-ALERT_MAIL_SERVER_AUTHMODE=loginPlain
-SAP_CPI_AUTH_API_CREDENTIALS_BASICAUTH=cpi_raffael_herrmann
+ALERT_MAIL_SERVER_SECURITYMODE=
+ALERT_MAIL_SERVER_AUTHMODE=
+SAP_CPI_AUTH_API_CREDENTIALS_BASICAUTH=
 DASHBOARD_URL_BASE=/realcore/cpidash
-SAP_CP_AUTH_API_CREDENTIALS=oauth_sapcp_authmanagement
+SAP_CP_AUTH_API_CREDENTIALS=
