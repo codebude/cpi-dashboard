@@ -3,7 +3,7 @@ SAP-RuntimeProfile: iflmap
 Bundle-SymbolicName: Webbrowser_to_CPI_SystemMonitor_RealcoreDashboard
  ; singleton:=true
 Bundle-Name: Webbrowser_to_CPI_SystemMonitor_RealcoreDashboard
-Bundle-Version: 1.0.28
+Bundle-Version: 1.0.31
 Bundle-ManifestVersion: 2
 SAP-ArtifactTrait: 
 SAP-NodeType: IFLMAP

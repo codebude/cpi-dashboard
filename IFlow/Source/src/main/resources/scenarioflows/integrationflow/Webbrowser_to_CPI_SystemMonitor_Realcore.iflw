@@ -4149,7 +4149,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193480_1570536908275" xsi:type="bpmn2:tFormalExpression">${header.SAP_DatastoreEntryFound} != 'false'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193480_1570594550480" xsi:type="bpmn2:tFormalExpression">${header.SAP_DatastoreEntryFound} != 'false'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_193478" name="no" sourceRef="ExclusiveGateway_193477" targetRef="ServiceTask_193432">
             <bpmn2:extensionElements>
@@ -4182,7 +4182,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193484_1570536908275" xsi:type="bpmn2:tFormalExpression">${property.mplQuery.get('endDate').toString().endsWith('59:59.999')} = 'true'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193484_1570594550481" xsi:type="bpmn2:tFormalExpression">${property.mplQuery.get('endDate').toString().endsWith('59:59.999')} = 'true'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_193486" name="no" sourceRef="ExclusiveGateway_193483" targetRef="CallActivity_193457">
             <bpmn2:extensionElements>
@@ -4836,7 +4836,7 @@
                 </ifl:property>
                 <ifl:property>
                     <key>propertyTable</key>
-                    <value>&lt;row&gt;&lt;cell id='Action'&gt;Create&lt;/cell&gt;&lt;cell id='Type'&gt;expression&lt;/cell&gt;&lt;cell id='Value'&gt;${body}&lt;/cell&gt;&lt;cell id='Default'&gt;&lt;/cell&gt;&lt;cell id='Name'&gt;cacheAlertCertResponse&lt;/cell&gt;&lt;cell id='Datatype'&gt;java.lang.String&lt;/cell&gt;&lt;/row&gt;</value>
+                    <value>&lt;row&gt;&lt;cell id='Action'&gt;Create&lt;/cell&gt;&lt;cell id='Type'&gt;constant&lt;/cell&gt;&lt;cell id='Value'&gt;{{SAP_CPI_HOST}}&lt;/cell&gt;&lt;cell id='Default'&gt;&lt;/cell&gt;&lt;cell id='Name'&gt;tenantHostname&lt;/cell&gt;&lt;cell id='Datatype'&gt;&lt;/cell&gt;&lt;/row&gt;&lt;row&gt;&lt;cell id='Action'&gt;Create&lt;/cell&gt;&lt;cell id='Type'&gt;expression&lt;/cell&gt;&lt;cell id='Value'&gt;${body}&lt;/cell&gt;&lt;cell id='Default'&gt;&lt;/cell&gt;&lt;cell id='Name'&gt;cacheAlertCertResponse&lt;/cell&gt;&lt;cell id='Datatype'&gt;java.lang.String&lt;/cell&gt;&lt;/row&gt;</value>
                 </ifl:property>
                 <ifl:property>
                     <key>headerTable</key>
@@ -5091,7 +5091,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193621_1570536908277" xsi:type="bpmn2:tFormalExpression">${property.numAlertMails} &gt; '0'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193621_1570594550485" xsi:type="bpmn2:tFormalExpression">${property.numAlertMails} &gt; '0'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_193660" name="yes" sourceRef="ExclusiveGateway_193659" targetRef="CallActivity_193634">
             <bpmn2:extensionElements>
@@ -5108,7 +5108,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193660_1570536908277" xsi:type="bpmn2:tFormalExpression">${property.numAlertRules} &gt; '0'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193660_1570594550486" xsi:type="bpmn2:tFormalExpression">${property.numAlertRules} &gt; '0'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_193662" name="no" sourceRef="ExclusiveGateway_193659" targetRef="CallActivity_193668">
             <bpmn2:extensionElements>
@@ -5605,7 +5605,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193718_1570536908278" xsi:type="bpmn2:tFormalExpression">${header.CamelHttpMethod} = 'POST'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193718_1570594550489" xsi:type="bpmn2:tFormalExpression">${header.CamelHttpMethod} = 'POST'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_193711" name="GET" sourceRef="ExclusiveGateway_193710" targetRef="CallActivity_193696">
             <bpmn2:extensionElements>
@@ -5622,7 +5622,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193711_1570536908278" xsi:type="bpmn2:tFormalExpression">${header.CamelHttpMethod} = 'GET'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193711_1570594550489" xsi:type="bpmn2:tFormalExpression">${header.CamelHttpMethod} = 'GET'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_193705" sourceRef="CallActivity_193703" targetRef="EndEvent_193694"/>
         <bpmn2:sequenceFlow id="SequenceFlow_193716" sourceRef="CallActivity_193714" targetRef="EndEvent_193713"/>
@@ -5898,7 +5898,7 @@
                     <value>ctype::FlowstepVariant/cname::GatewayRoute/version::1.0.0</value>
                 </ifl:property>
             </bpmn2:extensionElements>
-            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193658_1570536908286" xsi:type="bpmn2:tFormalExpression">${header.SAP_DatastoreEntryFound} != 'false'</bpmn2:conditionExpression>
+            <bpmn2:conditionExpression id="FormalExpression_SequenceFlow_193658_1570594550493" xsi:type="bpmn2:tFormalExpression">${header.SAP_DatastoreEntryFound} != 'false'</bpmn2:conditionExpression>
         </bpmn2:sequenceFlow>
         <bpmn2:sequenceFlow id="SequenceFlow_193657" sourceRef="CallActivity_193583" targetRef="CallActivity_193684"/>
         <bpmn2:sequenceFlow id="SequenceFlow_193728" sourceRef="CallActivity_193727" targetRef="CallActivity_193684"/>

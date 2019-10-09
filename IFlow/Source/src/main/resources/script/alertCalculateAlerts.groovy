@@ -27,6 +27,7 @@ def Message processData(Message message) {
         //only process active rules
         if (rule.active){
             if (rule.ruletype.equals("message")){
+                def tenantHostname = message.getProperty("tenantHostname")
                 //Check all messages for matches
                 def matchingMsgs = []
                 new JsonSlurper().parseText(message.getProperty("cacheAlertMplResponse")).d.results.each { msg ->
@@ -39,7 +40,7 @@ def Message processData(Message message) {
                 if (matchingMsgs.size() > 0) {
                     def mailText = "Dear operator(s),<br/><br/>during the alert check for message between ${message.getProperty("alertLastRunBeginDate")}(UTC) and ${message.getProperty("alertLastRunDateNew")}(UTC) there was a problem found in the interface \"${rule.artifact_id}\".<br/><br/><u>The matching alert rule is:</u> ${rule.name}<br/><u>The user alert text is:</u> ${rule.alert_receiver_body}<br/><br/><u>The following ${matchingMsgs.size()} messages are affected:</u><br/><ul>"
                     matchingMsgs.each { msg ->
-                        mailText += "<li><a href=\"https://p0401-tmn.hci.eu1.hana.ondemand.com/itspaces/shell/monitoring/Messages/%7B%22artifact%22:%22${rule.artifact_id}%22%7D\">${msg.id}</a> (Iflow-ID: ${msg.name})</li>"
+                        mailText += "<li><a href=\"https://${tenantHostname}/itspaces/shell/monitoring/Messages/%7B%22artifact%22:%22${msg.name}%22%7D\">${msg.id}</a> (Iflow-ID: ${msg.name})</li>"
                     }
                     mailText += "</ul>"
                     rule.put("mailtext",mailText)
