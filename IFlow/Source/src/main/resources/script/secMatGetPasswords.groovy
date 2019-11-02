@@ -34,7 +34,12 @@ def Message processData(Message message) {
         def credential = service.getUserCredential(it.Name)
         def pw = ""
         if (credential != null){
-            pw = new String(credential.getPassword())            
+            def pwTmp = credential.getPassword()
+            if (pwTmp != null && pwTmp.size() > 0){
+                pw = new String(credential.getPassword())
+            } else {
+                pw = ""
+            }
         }
         
     	keyList.push([

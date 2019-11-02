@@ -170,6 +170,11 @@
 	        float: left;
 	    }
 
+      .header-fixed-4 > thead > tr > th {
+	        width: 25%;
+	        float: left;
+	    }
+
 	    .header-fixed-2 > tbody > tr > td {
 	        width: 50%;
 	        float: left;
@@ -177,6 +182,11 @@
 
 	    .header-fixed-3 > tbody > tr > td {
 	        width: 33%;
+	        float: left;
+	    }
+
+      .header-fixed-4 > tbody > tr > td {
+	        width: 25%;
 	        float: left;
 	    }
 
@@ -213,7 +223,7 @@
         <div class="sidebar-brand-icon">          
           <img alt="Realcore Group Logo" src="data:image/png;base64,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" />
         </div>
-        <div class="sidebar-brand-text mx-3 mt-2" style="line-height: 12px;">CPI Dashboard<br/><span style="font-size: 0.6em;font-weight: 100;">v. 1.0.1</span></div>
+        <div class="sidebar-brand-text mx-3 mt-2" style="line-height: 12px;">CPI Dashboard<br/><span style="font-size: 0.6em;font-weight: 100;">v. 1.0.3</span></div>
       </a>
 
       <!-- Divider -->
@@ -299,6 +309,12 @@
         <a class="nav-link" href="#repository">
           <i class="fas fa-fw fa-code-branch"></i>
           <span>Artifacts status</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#alerting">
+          <i class="fas fa-fw fa-bell"></i>
+          <span>Alerting configuration</span>
         </a>
       </li>
       
@@ -709,6 +725,36 @@
               </div>
           </div>
 
+           <!-- Content row - alerting configuration -->
+           <div class="row">
+              <div class="col-lg-12 mb-4">
+                  <!-- Alerting -->
+                  <div id="alerting" class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-secondary"><i class="fas fa-bell"></i> Alerting configuration</h6>
+                    </div>
+                    <div id="alerting-container" class="card-body">
+                        <div class="mt-0 mb-4 card bg-secondary shadow">
+                          <div class="text-white card-body p-2">
+                            <button id="btn-alerting-add" class="btn btn-success"><i class="fas fa-plus"></i> Add alerting rule</button>
+                          </div>
+                        </div>
+                        <table id="tbl-alerting" class="table table-sm table-hover header-fixed header-fixed-4">
+                          <thead>
+                            <tr>                            
+                              <th scope="col">Name</th>
+                              <th scope="col">Type</th>
+                              <th scope="col">Active</th>                          
+                              <th scope="col">Action</th>         
+                            </tr>
+                          </thead>
+                          <tbody style="height:400px;" id="tbl-alerting-rows"></tbody>
+                        </table>                  
+                    </div>
+                  </div>
+                </div>
+            </div>
+
         </div>
         <!-- /.container-fluid -->
 
@@ -771,32 +817,173 @@
     </div>
   </div>
 
-  <!-- Credits modal -->
-  <div class="modal fade" id="modal-credits" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Credits</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div id="modal-credits-body" class="modal-body">
-            This page is based on the astonishing work of the following projects/teams.<br/><br/>
-            <ul>
-              <li><a href="https://jquery.com/" target="_blank">jQuery Framework <i class="fas fa-external-link-square-alt"></i></a></li>
-              <li><a href="https://jqueryui.com/easing/" target="_blank">jQuery UI (Easing) Library <i class="fas fa-external-link-square-alt"></i></a></li>
-              <li><a href="https://www.chartjs.org/" target="_blank">Chart.js Library <i class="fas fa-external-link-square-alt"></i></a></li>              
-              <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap Framework <i class="fas fa-external-link-square-alt"></i></a></li>
-              <li><a href="https://startbootstrap.com/themes/sb-admin-2/" target="_blank">SB Admin 2 Template <i class="fas fa-external-link-square-alt"></i></a></li>
-            </ul>            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
+  <!-- Confirm modal -->
+  <div class="modal fade" id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="modal-confirm-header" class="modal-title">Title</h5>
+        </div>
+        <div id="modal-confirm-body" class="modal-body"></div>
+        <div class="modal-footer">
+          <button id="modal-confirm-yes" type="button" class="btn btn-secondary">Yes</button>
+          <button id="modal-confirm-no" type="button" class="btn btn-secondary">No</button>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Credits modal -->
+  <div class="modal fade" id="modal-credits" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Credits</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="modal-credits-body" class="modal-body">
+          This page is based on the astonishing work of the following projects/teams.<br/><br/>
+          <ul>
+            <li><a href="https://jquery.com/" target="_blank">jQuery Framework <i class="fas fa-external-link-square-alt"></i></a></li>
+            <li><a href="https://jqueryui.com/easing/" target="_blank">jQuery UI (Easing) Library <i class="fas fa-external-link-square-alt"></i></a></li>
+            <li><a href="https://www.chartjs.org/" target="_blank">Chart.js Library <i class="fas fa-external-link-square-alt"></i></a></li>              
+            <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap Framework <i class="fas fa-external-link-square-alt"></i></a></li>
+            <li><a href="https://startbootstrap.com/themes/sb-admin-2/" target="_blank">SB Admin 2 Template <i class="fas fa-external-link-square-alt"></i></a></li>
+          </ul>            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerting modal -->
+  <div class="modal fade" id="modal-alerting" tabindex="-1" role="dialog" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div style="width:50%;padding:0;max-width:75%" class="modal-dialog modal-dialog-centered" role="document">
+      <div style="width:99%" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Configure alerting rule</h5>
+          <button type="button" class="close" id="modal-alerting-close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="modal-alerting-body" style="padding:30px" class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label for="alert-conf-name" class="col-3 col-form-label">Alert rule name</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-name">
+                <small class="text-muted">The name must be unique within all alert rules.</small>
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="alert-conf-type" class="col-3 col-form-label">Type of alert</label>
+              <div class="col-9">
+                <select class="form-control" id="alert-conf-type">
+                  <option>Message</option>
+                  <option>Certificate</option>
+                </select>
+                <small class="text-muted">Message=Check for message state, Certificate=Check certificate's validity.</small>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-3">State of rule</div>
+              <div class="col-9">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="alert-conf-active">
+                  <label class="form-check-label" for="alert-conf-active">
+                    active
+                  </label>
+                </div>
+              </div>
+            </div>
+            <hr/>
+            <div class="form-group row alert-message-only">
+              <label for="alert-conf-msgstate" class="col-3 col-form-label">Message state</label>
+              <div class="col-9">
+                <select class="form-control" id="alert-conf-msgstate">
+                  <option>ALL</option>
+                  <option>FAILED</option>
+                  <option>COMPLETED</option>
+                  <option>RETRY</option>
+                  <option>PROCESSING</option>
+                  <option>ESCALATED</option>                  
+                </select>
+              </div>
+            </div>
+            <div class="form-group row alert-message-only">
+              <label for="alert-conf-sender" class="col-3 col-form-label">Sender system</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-sender">
+                <small class="text-muted">Leave empty to match all. Wildcards via * are possible.</small>
+              </div>              
+            </div>
+            <div class="form-group row alert-message-only">
+              <label for="alert-conf-receiver" class="col-3 col-form-label">Receiver system</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-receiver">
+                <small class="text-muted">Leave empty to match all. Wildcards via * are possible.</small>
+              </div>
+            </div>
+            <div class="form-group row alert-message-only">
+              <label for="alert-conf-artifact" class="col-3 col-form-label">Artifact ID</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-artifact">
+                <small class="text-muted">Leave empty to match all. Wildcards via * are possible.</small>
+              </div>
+            </div>
+            <div class="form-group row alert-cert-only" style="display:none">
+              <label for="alert-conf-certificate" class="col-3 col-form-label">Certificate ID</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-certificate">
+                <small class="text-muted">Leave empty to match all. Wildcards via * are possible.</small>
+              </div>
+            </div>
+            <div class="form-group row alert-cert-only" style="display:none">
+              <label for="alert-conf-certdays" class="col-3 col-form-label">Warn X days before end of validity</label>
+              <div class="col-9">
+                <input type="number" class="form-control" id="alert-conf-certdays" value="14" min="1" max="365">
+              </div>
+            </div>
+            <hr/>
+            <div class="form-group row">
+              <label for="alert-conf-mail-receiver" class="col-3 col-form-label">Alert mail receiver(s)</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-mail-receiver">
+                <small class="text-muted">Divide multiple mail addresses by colons (;).</small>
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="alert-conf-mail-ccreceiver" class="col-3 col-form-label">Alert mail CC receiver(s)</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-mail-ccreceiver">
+                <small class="text-muted">Divide multiple mail addresses by colons (;).</small>
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="alert-conf-mail-subject" class="col-3 col-form-label">Alert mail subject line</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-mail-subject">
+              </div>              
+            </div>
+            <div class="form-group row">
+              <label for="alert-conf-mail-body" class="col-3 col-form-label">Alert mail user body/message</label>
+              <div class="col-9">
+                <input type="text" class="form-control" id="alert-conf-mail-body">
+              </div>              
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="modal-alerting-save" type="button" class="btn btn-secondary">Save</button>
+          <button id="modal-alerting-cancel" type="button" class="btn btn-secondary">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -818,12 +1005,56 @@
 
   <script type="text/javascript">
   var autoRefreshTimer
+  var initialLoad = true
+  var cacheAlertRules
+
+  function cleanAlertConfig(){
+    $('#alert-conf-name').prop('readonly', false)
+    $('#alert-conf-type').prop('disabled', false)
+    $('#modal-alerting-body input').val('')
+    $('#alert-conf-type').val('Message')
+    $('#alert-conf-msgstate').val('ALL')
+    $('#alert-conf-active').prop("checked", false)
+    $('#alert-conf-certdays').val(14)
+    $('.alert-message-only').show()
+    $('.alert-cert-only').hide()
+  }
 
 	$(document).ready(function(){
 		
+    //DEBUG
+    //$('#modal-alerting').modal('show')
+
+    //Change alert config GUI in dependency to alert type
+    $('#alert-conf-type').on('change', function(){
+      if ($(this).val() == "Message"){
+        $('.alert-message-only').show()
+        $('.alert-cert-only').hide()
+      } else {
+        $('.alert-message-only').hide()
+        $('.alert-cert-only').show()
+      }
+    })
+
+    $('#modal-alerting-save').click(function(){
+      saveAlertRule()
+    })
+
+    $('#modal-alerting-cancel').click(function(){
+      cancelAlertRule()
+    })
+
+    $('#modal-alerting-close').click(function(){
+      cancelAlertRule()
+    })
+
 		$('#btn-print').click(function(){
 			window.print()
 		})
+
+    $('#btn-alerting-add').click(function (){
+      alertCreate()
+    })
 
     $('#btn-auto-refresh').click(function(){
       var mode = $(this).attr('data')
@@ -1119,13 +1350,20 @@
       $('#row-count-repo-warning').html(`${countWarning}x `)
       $('#row-count-repo-danger').html(`${countDanger}x `)
 
+      //Load alert rules from API and render them
+      if (initialLoad){
+        loadAlertRules()
+      }
+
       //Render footer
       var contFooter = $('.sticky-footer span').html()
       if (contFooter.indexOf(' | CPI query runtime') > -1){
         $('.sticky-footer span').html(`${contFooter.substring(0,contFooter.indexOf(' | CPI query runtime'))} | CPI query runtime: ${data[4].queryRuntime}`)
       } else {
         $('.sticky-footer span').html(`${contFooter} | CPI query runtime: ${data[4].queryRuntime}`)
-      }            
+      }
+
+      initialLoad = false            
     }
     catch (ex){
       alert(ex)
@@ -1134,6 +1372,210 @@
     $('.loading').fadeOut(500)
 		
 	}
+
+  function loadAlertRules(){
+    try {
+      if (window.location.protocol == "file:"){        
+        renderAlertRules(alertrules)
+      } else {
+        $.ajax({
+          xhrFields: {
+              withCredentials: true
+          },        
+          url: "<<ENDPOINT_ALERT>>"
+        }).done(function(alertrules) {
+            console.log("Got response from CPI for alertrules");
+            renderAlertRules(alertrules);
+        }).fail(function(jqxhr, textStatus, error) {
+            console.log(textStatus)
+            console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError = `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
+        });
+      }  
+    }
+    catch (ex){
+      alert(ex)
+      console.log(ex)
+    }    
+  }
+
+  function renderAlertRules(alertRules){
+    var htmlTblAlertRows = ""
+    alertRules.rules.sort(function(a, b) {
+      var x = a.name.toLowerCase(), y = b.name.toLowerCase();
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
+    $.each(alertRules.rules, function(i,v){    
+      htmlTblAlertRows += `<tr>                            
+        <td scope="col">${v.name}</td>
+        <td scope="col">${v.ruletype}</td>
+        <td scope="col"><span class="text-${(v.active ? "success" : "danger")}">${v.active}</span></td>
+        <td scope="col"><button onClick="alertEdit('${v.name}')" class="btn btn-sm btn-secondary"><i class="fas fa-edit"></i> Edit</button>&nbsp;<button onClick="confirm('Do you really want to delete the ${v.name} alerting rule?', 'Are you sure?', alertDelete, '${v.name}')" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Delete</button></td>
+      </tr>`
+    })
+    cacheAlertRules = alertRules
+    $('#tbl-alerting-rows').html(htmlTblAlertRows)
+    $('.loading').fadeOut(250)
+  }
+
+  function alertDelete(shallDelete, name){
+    $('#modal-confirm').modal('hide')
+    if (shallDelete){
+      $('.loading').fadeIn(250);
+      try {
+        cacheAlertRules.rules = cacheAlertRules.rules.filter(function( obj ) {
+          return obj.name !== name;
+        });
+      
+        $.ajax({
+          xhrFields: {
+              withCredentials: true
+          },        
+          dataType: "json",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(cacheAlertRules),
+          url: "<<ENDPOINT_ALERT>>"
+        }).done(function() {
+            console.log("Got response from CPI for updating alert rules");
+            console.log(`Deleted alert rule: ${name}`)
+            console.log(cacheAlertRules)
+            loadAlertRules()
+        }).fail(function(jqxhr, textStatus, error) {
+            $('.loading').fadeOut(250)
+            console.log(textStatus)
+            console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError = `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
+        });        
+      }
+      catch (ex){
+        $('.loading').fadeOut(250)
+        alert(ex)
+        console.log(ex)
+      }        
+    }
+  }
+
+  function saveAlertRule(){
+    var editMode = $('#alert-conf-name').prop('readonly')
+    if (!editMode && cacheAlertRules.rules.filter(function( obj ) { return obj.name == $('#alert-conf-name').val(); }).length > 0){
+      alert("Alert rule with this name already exists. Please set unique name.")
+      return
+    }
+    if ($('#alert-conf-type').val() == "Certificate" && ($('#alert-conf-certdays').val() < 1 || $('#alert-conf-certdays').val() > 365)){
+      alert("Certificate warning period must be within 1 and 365 days.")
+      return
+    }
+
+    //Data seems to be valid, let's create the alert rule
+    $('.loading').fadeIn(250);
+    $('#modal-alerting').modal('hide')
+    var newRule = {}
+    newRule.name = $('#alert-conf-name').val() 
+    newRule.ruletype = $('#alert-conf-type').val().toLowerCase()
+    newRule.active = $('#alert-conf-active').prop('checked')    
+    if ($('#alert-conf-type').val() == "Message"){
+      newRule.state = $('#alert-conf-msgstate').val()
+      newRule.sender = $('#alert-conf-sender').val()
+      newRule.receiver = $('#alert-conf-receiver').val()
+      newRule.artifact_id = $('#alert-conf-artifact').val()
+    } else {
+      newRule.certificate_id = $('#alert-conf-certificate').val()
+      newRule.warn_days_before = parseInt($('#alert-conf-certdays').val())
+    }
+    newRule.alert_receiver = $('#alert-conf-mail-receiver').val()
+    newRule.alert_receiver_cc = $('#alert-conf-mail-ccreceiver').val()
+    newRule.alert_receiver_title = $('#alert-conf-mail-subject').val()
+    newRule.alert_receiver_body = $('#alert-conf-mail-body').val()
+
+    if(editMode){
+      //remove current
+      cacheAlertRules.rules = cacheAlertRules.rules.filter(function( obj ) {
+        return obj.name !== $('#alert-conf-name').val();
+      });      
+    }
+    //add new
+    cacheAlertRules.rules.push(newRule)
+
+    try {
+        $.ajax({
+          xhrFields: {
+              withCredentials: true
+          },        
+          dataType: "json",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify(cacheAlertRules),
+          url: "<<ENDPOINT_ALERT>>"
+        }).done(function() {
+            console.log("Got response from CPI for updating alert rules");
+            console.log(`Deleted alert rule: ${name}`)
+            console.log(cacheAlertRules)
+            loadAlertRules()
+        }).fail(function(jqxhr, textStatus, error) {
+            $('.loading').fadeOut(250)
+            console.log(textStatus)
+            console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError = `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
+        });        
+      }
+      catch (ex){
+        $('.loading').fadeOut(250)
+        alert(ex)
+        console.log(ex)
+      }        
+  }
+
+  function cancelAlertRule(){    
+    $('#modal-alerting').modal('hide')
+    cleanAlertConfig()
+  }
+
+  function showAlertEditor(id){
+    cleanAlertConfig()
+    if (id !== undefined){
+      var rule = cacheAlertRules.rules.filter(function( obj ) { return obj.name == id; })[0];  
+      $('#alert-conf-name').prop('readonly', true)
+      $('#alert-conf-type').prop('disabled', true)
+
+      $('#alert-conf-name').val(rule.name) 
+      $('#alert-conf-type').val((rule.ruletype == "message" ? "Message" : "Certificate"))
+      $('#alert-conf-active').prop('checked', rule.active)
+      if (rule.ruletype == "message"){
+        $('#alert-conf-msgstate').val(rule.state)
+        $('#alert-conf-sender').val(rule.sender)
+        $('#alert-conf-receiver').val(rule.receiver)
+        $('#alert-conf-artifact').val(rule.artifact_id)
+      } else {
+        $('.alert-message-only').hide()
+        $('.alert-cert-only').show()
+        $('#alert-conf-certificate').val(rule.certificate_id)
+        $('#alert-conf-certdays').val(rule.warn_days_before)
+      }
+      $('#alert-conf-mail-receiver').val(rule.alert_receiver)
+      $('#alert-conf-mail-ccreceiver').val(rule.alert_receiver_cc)
+      $('#alert-conf-mail-subject').val(rule.alert_receiver_title)
+      $('#alert-conf-mail-body').val(rule.alert_receiver_body)
+    }
+    $('#modal-alerting').modal('show')
+  }
+
+  function alertCreate(){
+    showAlertEditor()
+  }
+
+  function alertEdit(name){
+    showAlertEditor(name)
+  }
 
   function loadSecurityMaterial(){
     try {
@@ -1152,6 +1594,10 @@
         }).fail(function(jqxhr, textStatus, error) {
             console.log(textStatus)
             console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError = `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
         });
       }  
     }
@@ -1398,6 +1844,26 @@
 		return parseFloat(Math.round(inp * 100) / 100).toFixed(2).padStart(5,"\u00A0");
   }
   
+  function confirm(text, title, callback, param){
+    $('#modal-confirm-yes').off("click")
+    $('#modal-confirm-yes').click(function(){
+      if (param === undefined)
+        callback(true)
+      else
+        callback(true, param)
+    })
+    $('#modal-confirm-no').off("click")
+    $('#modal-confirm-no').click(function(){
+      if (param === undefined)
+        callback(false)
+      else
+        callback(false, param)
+    })
+    $('#modal-confirm-header').html(title)
+    $('#modal-confirm-body').html(text)
+    $('#modal-confirm').modal('show')
+  }
+
   function showCredits(){
     $('#modal-credits').modal('show')
   }
