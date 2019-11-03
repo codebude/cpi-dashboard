@@ -123,7 +123,7 @@ gc $inputfile | Select-String -Pattern $reg -AllMatches | ForEach-Object {
         $token="<style type='text/css'>"+$inlineContent+"</style>"
     } else {
         #js
-        if ($url -ne "../../status.json" -and $url -ne "../../securitymaterial.json") {
+        if ($url -ne "../../status.json" -and $url -ne "../../securitymaterial.json" -and $url -ne "../../alertrules.json" -and $url -ne "../../scheduler.json" -and $url -ne "../../iFlowPackageContent.json" -and $url -ne "../../diffResult.json") {
             $token="<script type='text/javascript'>"+$inlineContent+"</script>"
         } else {
             $token=""
