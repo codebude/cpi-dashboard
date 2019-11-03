@@ -1,10 +1,11 @@
 #
-#Tue Oct 08 13:50:30 UTC 2019
+#Sun Nov 03 18:22:55 UTC 2019
 ROLE_SECURITY_MAT_ACCESS=de.realcore.cpi.dashboard.security
 SAP_CPI_AUTH_API_CREDENTIALS_OAUTH=
 CACHE_DATASTORE_NAME=CPI_Dashboard_Cache
 SAP_CPI_HOST=
-ALERT_TIMER=<row><cell>dayValue</cell><cell></cell></row><row><cell>monthValue</cell><cell></cell></row><row><cell>yearValue</cell><cell></cell></row><row><cell>dateType</cell><cell>DAILY</cell></row><row><cell>secondValue</cell><cell>0</cell></row><row><cell>minutesValue</cell><cell></cell></row><row><cell>hourValue</cell><cell></cell></row><row><cell>toInterval</cell><cell>24</cell></row><row><cell>fromInterval</cell><cell>0</cell></row><row><cell>OnEveryHour</cell><cell>12</cell></row><row><cell>timeType</cell><cell>TIME_HOUR_INTERVAL</cell></row><row><cell>timeZone</cell><cell>( UTC 0\:00 ) Greenwich Mean Time(Etc/GMT)</cell></row><row><cell>triggerType</cell><cell>cron</cell></row><row><cell>noOfSchedules</cell><cell>1</cell></row><row><cell>schedule1</cell><cell>0+0+0,12+?+*+*+*&amp;trigger.timeZone\=Etc/GMT</cell></row>
+DIFF_REMOTE_CPI_TENANTS=
+ALERT_TIMER=<row><cell>dayValue</cell><cell></cell></row><row><cell>monthValue</cell><cell></cell></row><row><cell>yearValue</cell><cell></cell></row><row><cell>dateType</cell><cell>DAILY</cell></row><row><cell>secondValue</cell><cell>0</cell></row><row><cell>minutesValue</cell><cell></cell></row><row><cell>hourValue</cell><cell></cell></row><row><cell>toInterval</cell><cell>24</cell></row><row><cell>fromInterval</cell><cell>0</cell></row><row><cell>OnEveryHour</cell><cell>6</cell></row><row><cell>timeType</cell><cell>TIME_HOUR_INTERVAL</cell></row><row><cell>timeZone</cell><cell>( UTC 1\:00 ) Central European Time(Europe/Berlin)</cell></row><row><cell>triggerType</cell><cell>cron</cell></row><row><cell>noOfSchedules</cell><cell>1</cell></row><row><cell>schedule1</cell><cell>0+0+0,6,12,18+?+*+*+*&amp;trigger.timeZone\=Europe/Berlin</cell></row>
 ALERT_MAIL_SENDER=
 ROLE_GENERAL_ACCESS=de.realcore.cpi.dashboard
 ALERT_MAIL_SERVER_HOSTNAME=
