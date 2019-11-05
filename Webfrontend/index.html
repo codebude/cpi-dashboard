@@ -1546,6 +1546,10 @@
     })
 
     loadDashboardData()		
+
+    //Load them in parallel, since they have their own loading animation and shouldn't be reloaded with auto load
+    loadIFlowScheduler()
+    loadPackageContent()
 	})
 
   function loadDashboardData(){
@@ -1818,9 +1822,14 @@
 
       //Load alert rules, iflow scheduler and systems from API and render them
       if (initialLoad){
-        loadAlertRules()
+        loadAlertRules()        
+      }
+      else {
+        //If it's not the initial run (=auto reload), also refresh the timer screen
+        //Package list and alerts won't be refreshed because, ...
+        //--> Package list affects runtime. If user did changes, he should really reload the dashboard
+        //--> Alert config, could be falsely overwritten, if user is in edit mode. Thus no auto re-load.
         loadIFlowScheduler()
-        loadPackageContent()
       }
 
       //Render footer
