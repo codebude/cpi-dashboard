@@ -634,7 +634,6 @@
 
           <!-- Content Row - 4 columns mini kacheln -->
           <div class="row">
-
             <!-- CPU /stat/loadavg -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
@@ -725,7 +724,6 @@
 
           <!-- Content Row -  memory diagrams-->
           <div class="row">
-
             <!-- System memory and swap -->
             <div class="col-xl-6">
               <div id="mem-sys" class="card shadow mb-4">
@@ -1183,7 +1181,6 @@
               </div>
             </div>
           </div>
-
         </div>
         <!-- /.container-fluid -->
       </div>
@@ -1199,10 +1196,8 @@
         </div>
       </footer>
       <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
-
   </div>
   <!-- End of Page Wrapper -->
 
@@ -1568,6 +1563,7 @@
   <script src="scheduler.json"></script>
   <script src="diffResult.json"></script>
 
+  <!-- Script for loading and displaying of the dashboard -->
   <script type="text/javascript">
     var autoRefreshTimer
     var initialLoad = true
@@ -1748,7 +1744,6 @@
         $('#data-jvm-homedir').html(data[2].jvmInfo.jvmSystemInfo.userInfo.jvmUserHomeDir)
         $('#data-jvm-workingdir').html(data[2].jvmInfo.jvmSystemInfo.userInfo.jvmUserWorkingDir)
 
-
         //Render message list - last month
         var countDailys = 0
         $.each(data[3].cpiInfo.messageCountInfo, function(i, el) {
@@ -1905,11 +1900,11 @@
         if (!data[3].cpiInfo.currentCaller.dashboardScopes.passwordAccess) {
           $('#pw-infobox').html(
             '<div class="mt-0 card bg-danger text-white shadow"><div  class="card-body"><span class="font-weight-light"><b>Not allowed!</b><br/>To view the security material and it\'s passwords, your S-User has to have the appropriate role. Please contact your SAP CPI Dashboard administator for more information.</span></div></div>'
-            )
+          )
         } else {
           $('#pw-infobox').html(
             '<div style="color:#000;" class="mt-0 mb-4 card bg-warning shadow"><div class="card-body p-2"><span class="font-weight-light"><b>Warning!</b><br/>Security material contains sensitive information. Only use this feature in consultation with your client/system owner.</span><br/><button class="btn btn-secondary" onClick="loadSecurityMaterial()"><i class="fas fa-arrow-circle-down"></i> Load security material</button></div></div>'
-            )
+          )
         }
 
         //Load alert rules, iflow scheduler and systems from API and render them
@@ -2181,7 +2176,6 @@
         console.log(ex)
       }
     }
-
 
     var $optionsCachePackages1
     var $optionsCachePackages2
