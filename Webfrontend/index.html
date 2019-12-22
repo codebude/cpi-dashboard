@@ -450,6 +450,27 @@
       align-items: center;
       min-height: 70vh;
     }
+
+    /* Define column width for the artifacts overview table */
+    .artifactsTable200 {
+      word-break: break-all;
+      min-width: 200px;
+      width: 200px;
+    }
+
+    .artifactsTable185,
+    .artifactsTable185 .th-inner {
+      word-break: break-all;
+      min-width: 185px;
+      width: 185px;
+    }
+
+    /* Improve Lists within popover and within the artifacts overview table */
+    .popover-body ul,
+    table#artifacts tbody tr td ul {
+      padding-left: 15px;
+      margin-bottom: 0;
+    }
   </style>
 </head>
 
@@ -552,7 +573,7 @@
       <li class="nav-item">
         <a class="nav-link" href="#repository">
           <i class="fas fa-fw fa-code-branch"></i>
-          <span>Artifacts status</span>
+          <span>Artifacts overview</span>
         </a>
       </li>
       <li class="nav-item">
@@ -973,31 +994,35 @@
             </div>
           </div>
 
-          <!-- Content row - repository comparison -->
+          <!-- Content row - Artifact overview -->
           <div class="row">
             <div class="col-lg-12 mb-4">
               <!-- Repository -->
               <div id="repository" class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-secondary"><i class="fas fa-code-branch"></i> Artifact comparison</h6>
+                  <h6 class="m-0 font-weight-bold text-secondary"><i class="fas fa-code-branch"></i> Artifact Overview</h6>
                 </div>
                 <div id="artifacts-container" class="card-body">
-                  <div class="mt-0 mb-4 card bg-secondary shadow">
-                    <div class="text-white card-body p-2">
-                      <span class="font-weight-light"><b>Legend: </b>&nbsp;&nbsp;<span id="row-count-repo-white"></span><i class="fas fa-stop"></i>=artifact only on designtime&nbsp;&nbsp;&nbsp;<span id="row-count-repo-success"></span><i
-                          class="fas fa-stop text-success"></i>=runtime equals designtime&nbsp;&nbsp;&nbsp;<span id="row-count-repo-warning"></span><i class="fas fa-stop text-warning"></i>=runtime differs from designtime&nbsp;&nbsp;&nbsp;<span
-                          id="row-count-repo-danger"></span><i class="fas fa-stop text-danger"></i>=artifact only on runtime</span>
+                  <div id="artifactsTableToolbar" class="card bg-secondary" style="width: 400px; text-align: center; margin-bottom: 0 !important; border: 0;">
+                    <div class="text-white card-body" style="padding-top: 7px !important; padding-bottom: 7px !important;">
+                      <span><b>Legend: </b>&nbsp;<span id="countArtifactsTableToolbarOk" class="badge badge-success"></span>=Ok&nbsp;|&nbsp;<span id="countArtifactsTableToolbarWarning" class="badge badge-warning"></span>=Warning&nbsp;|&nbsp;<span
+                          id="countArtifactsTableToolbarCritical" class="badge badge-danger"></span>=Critical</span>
                     </div>
                   </div>
-                  <table id="tbl-artifacts" class="table table-sm table-hover header-fixed header-fixed-3">
+                  <table id="artifacts" data-toolbar="#artifactsTableToolbar" data-show-columns="true" data-show-toggle="true" data-pagination="true" data-pagination-loop="false" data-id-field="Id" data-page-list="[10, 25, 50, 100, all]"
+                    data-side-pagination="client" data-show-fullscreen="true" data-show-columns-toggle-all="true" data-height="750" data-row-style="renderArtifactsTableRowStyle" data-row-attributes="renderArtifactsTableRowAttributes">
                     <thead>
-                      <tr>
-                        <th scope="col">Artifact name<br /><small>(Artifact ID)</small><br /><small>Package Name | Type</small></th>
-                        <th scope="col">Version (Designtime)<br /><br />&nbsp;</th>
-                        <th scope="col">Version (Runtime)<br /><br />&nbsp;</th>
+                      <tr id="artifactsTableColumnCategories">
+                        <th colspan="5">Artifact Details</th>
+                      </tr>
+                      <tr id="artifactsTableColumns">
+                        <th data-field="Id" data-sortable="true" class="artifactsTable200">Technical ID</th>
+                        <th data-field="Severity" data-sortable="true" data-visible="false">Attention</th>
+                        <th data-field="Remarks" data-sortable="true" data-visible="false" class="artifactsTable200">Findings</th>
+                        <th data-field="Name" data-sortable="true" class="artifactsTable200">Name</th>
+                        <th data-field="Type" data-sortable="true" class="artifactsTable185">Type</th>
                       </tr>
                     </thead>
-                    <tbody style="height:400px;" id="tbl-artifacts-rows"></tbody>
                   </table>
                 </div>
               </div>
@@ -1623,6 +1648,7 @@
       loadDashboardData()
 
       //Load them in parallel, since they have their own loading animation and shouldn't be reloaded with auto load
+      loadArtifactsContent()
       loadIFlowScheduler()
       loadPackageContent()
     })
@@ -1886,41 +1912,6 @@
             )
         }
 
-        //Show repository content
-        var htmlTblRepositoryRows = ""
-        var countWhite = 0,
-          countSuccess = 0,
-          countDanger = 0,
-          countWarning = 0
-        $.each(data[3].cpiInfo.artifactsStateInfo, function(i, v) {
-          var color = ""
-          if (v.VersionDesigntime == v.VersionRuntime) {
-            color = "table-success"
-            countSuccess++
-          } else {
-            if (v.VersionDesigntime != "" && v.VersionRuntime != "") {
-              color = "table-warning"
-              countWarning++
-            } else if (v.VersionRuntime == "") {
-              color = "table-white"
-              countWhite++
-            } else if (v.VersionDesigntime == "") {
-              color = "table-danger"
-              countDanger++
-            }
-          }
-          htmlTblRepositoryRows += `<tr class="${color}">
-          <td scope="col">${v.Name}<br/><small>(${v.Id})</small><br/><small>${v.DesigntimePackage != "" ? v.DesigntimePackage : "n/a"} | ${v.Type}</small></td>
-          <td scope="col">${v.VersionDesigntime}<br/><br/>&nbsp;</td>
-          <td scope="col">${v.VersionRuntime}<br/><br/>&nbsp;</td>
-        </tr>`
-        })
-        $('#tbl-artifacts-rows').html(htmlTblRepositoryRows)
-        $('#row-count-repo-white').html(`${countWhite}x `)
-        $('#row-count-repo-success').html(`${countSuccess}x `)
-        $('#row-count-repo-warning').html(`${countWarning}x `)
-        $('#row-count-repo-danger').html(`${countDanger}x `)
-
         //Load alert rules, iflow scheduler and systems from API and render them
         if (initialLoad) {
           loadAlertRules()
@@ -1946,7 +1937,162 @@
         console.log(ex)
       }
       $('.loading').fadeOut(500)
+    }
 
+    function loadArtifactsContent() {
+      var artifactsTable = $('table#artifacts')
+      artifactsTable.bootstrapTable()
+      artifactsTable.bootstrapTable('showLoading')
+
+      try {
+        if (window.location.protocol == "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+          artifactsTable.bootstrapTable('destroy')
+          var loadedMaterials = loadArtifactsTableData(artifactsContent)
+          artifactsTable.bootstrapTable()
+          artifactsTable.bootstrapTable('showLoading')
+          artifactsTable.bootstrapTable('load', loadedMaterials)
+          $('[data-toggle="popover"]').popover()
+          artifactsTable.bootstrapTable('hideLoading')
+        } else {
+          $.ajax({
+            xhrFields: {
+              withCredentials: true
+            },
+            url: "<<ENDPOINT_ARTIFACTS>>"
+          }).done(function(artifactsContent) {
+            console.log("Got response from CPI for artifacts content");
+            artifactsTable.bootstrapTable('destroy')
+            var loadedMaterials = loadArtifactsTableData(artifactsContent)
+            artifactsTable.bootstrapTable()
+            artifactsTable.bootstrapTable('showLoading')
+            artifactsTable.bootstrapTable('load', loadedMaterials)
+            $('[data-toggle="popover"]').popover()
+            artifactsTable.bootstrapTable('hideLoading')
+          }).fail(function(jqxhr, textStatus, error) {
+            console.log(textStatus)
+            console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError =
+              `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
+          });
+        }
+      } catch (ex) {
+        alert(ex)
+        console.log(ex)
+      }
+    }
+
+    function loadArtifactsTableData(data) {
+      var systems = data["systems"]
+      var artifacts = data["artifacts"]
+
+      // Handle systems
+      Object.keys(systems).forEach(function(key) {
+        $('#artifactsTableColumnCategories').append('<th colspan="3">' + systems[key] + ' [' + key + ']</th>')
+        $('#artifactsTableColumns').append('<th data-field="VersionDesigntime.' + key + '" data-sortable="true" class="artifactsTable185">Design Version [' + key + ']</th><th data-field="VersionRuntime.' + key +
+          '" data-sortable="true" class="artifactsTable185">Runtime Version [' + key + ']</th><th data-field="DesigntimePackage.' + key + '" data-sortable="true" class="artifactsTable200">Package [' + key + ']</th>')
+      })
+
+      // Handle artifacts
+      var rows = []
+      var countOk = 0
+      var countWarning = 0
+      var countCritical = 0
+      Object.keys(artifacts).forEach(function(key) {
+        // Prepare table row
+        var row = []
+        row['Id'] = artifacts[key].Id
+        row['Name'] = artifacts[key].Name
+        row['Type'] = artifacts[key].Type
+        row['Severity'] = artifacts[key].Severity
+
+        // Prepare Remarks as List
+        if (artifacts[key].Remarks != "") {
+          var remarks = artifacts[key].Remarks.split(' | ')
+          var remarksHTML = "<ul>"
+          remarks.forEach(function(remark) {
+            remarksHTML += "<li>" + remark + "</li>"
+          })
+          remarksHTML += "</ul>"
+          row['Remarks'] = remarksHTML
+        } else {
+          row['Remarks'] = artifacts[key].Remarks
+        }
+
+        var designtimePackages = artifacts[key].DesigntimePackage
+        Object.keys(designtimePackages).forEach(function(key) {
+          row['DesigntimePackage.' + key] = designtimePackages[key]
+        })
+
+        var versionDesigntimes = artifacts[key].VersionDesigntime
+        Object.keys(versionDesigntimes).forEach(function(key) {
+          row['VersionDesigntime.' + key] = versionDesigntimes[key]
+        })
+
+        var versionRuntimes = artifacts[key].VersionRuntime
+        Object.keys(versionRuntimes).forEach(function(key) {
+          row['VersionRuntime.' + key] = versionRuntimes[key]
+        })
+
+        // Add table row to table data
+        rows.push(row)
+
+        // Add one to the corresponding counter for the number of rows per serverity for the legend
+        if (artifacts[key].Severity == 'OK') {
+          countOk++
+        } else if (artifacts[key].Severity == 'WARNING') {
+          countWarning++
+        } else if (artifacts[key].Severity == 'CRITICAL') {
+          countCritical++
+        }
+      })
+
+      // Add the number of rows per serverity to the legend
+      $('#countArtifactsTableToolbarOk').html(countOk + "x")
+      $('#countArtifactsTableToolbarWarning').html(countWarning + "x")
+      $('#countArtifactsTableToolbarCritical').html(countCritical + "x")
+
+      return rows
+    }
+
+    function renderArtifactsTableRowAttributes(row, index) {
+      if (row.Severity != 'OK') {
+        return {
+          'data-toggle': 'popover',
+          'data-placement': 'bottom',
+          'data-trigger': 'hover',
+          'title': row.Severity + ": Remarks for '" + row.Id + "'",
+          'data-content': row.Remarks,
+          'data-html': true
+        }
+      }
+      return {}
+    }
+
+    // Enables popup of renderArtifactsTableRowAttributes
+    $(function() {
+      $('#artifacts').on('post-body.bs.table', function(e) {
+        $('[data-toggle="popover"]').popover()
+      })
+    })
+
+    function renderArtifactsTableRowStyle(row, index) {
+      if (row.Severity == 'WARNING') {
+        return {
+          classes: 'alert-warning'
+        }
+      } else
+      if (row.Severity == 'CRITICAL') {
+        return {
+          classes: 'alert-danger'
+        }
+      } else {
+        return {
+          classes: 'alert-success'
+        }
+      }
     }
 
     function loadPackageContent() {
