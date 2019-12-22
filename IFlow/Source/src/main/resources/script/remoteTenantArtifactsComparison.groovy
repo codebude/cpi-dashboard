@@ -14,14 +14,30 @@ Message processData(Message message) {
 	def systems = getSystems(message)
 
   def i = 0
-	def result = [systems:[],artifacts:[]]
+	def result = [systems:[:],artifacts:[]]
   def artifacts = [:]
 	systems.each{ system ->
-    result.systems << [id:i,hostname:system.hostname]
-    //TODO: artifacts = addRuntimeArtifacts(system,artifacts,i)
+    result.systems << ["${i}":system.hostname]
     artifacts = addDesigntimeArtifacts(system,artifacts,i)
+    artifacts = addRuntimeArtifacts(system,artifacts,i)
     i++
 	}
+
+  // Improve artifacts - set missing versions
+  artifacts.each{artifact ->
+    0.upto(i-1, {
+      if(!artifacts[artifact.key].get("VersionDesigntime").containsKey("${it}")){
+        artifacts[artifact.key].VersionDesigntime << ["${it}":"N/A"]
+      }
+      if(!artifacts[artifact.key].get("VersionRuntime").containsKey("${it}")){
+        artifacts[artifact.key].VersionRuntime << ["${it}":"N/A"]
+      }
+      if(!artifacts[artifact.key].get("DesigntimePackage").containsKey("${it}")){
+        artifacts[artifact.key].DesigntimePackage << ["${it}":"N/A"]
+      }
+    })
+  }
+
   result.artifacts = artifacts
 
   def body = JsonOutput.toJson(result)
@@ -50,13 +66,14 @@ private addDesigntimeArtifacts(def system, def artifacts, def i){
     json.d.results.each{
         if (artifactsOut.containsKey(it.Name)){
             artifactsOut[it.Name].VersionDesigntime << ["${i}":it.Version]
+            artifactsOut[it.Name].VersionRuntime << ["${i}":"N/A"]
             artifactsOut[it.Name].DesigntimePackage << ["${i}":packageDisplayname]
         } else {
             artifactsOut[it.Name]= [
                 Id:it.Name,
                 Name:it.DisplayName,
                 DesigntimePackage:["${i}":packageDisplayname],
-                VersionRuntime:"---",
+                VersionRuntime:["${i}":"N/A"],
                 VersionDesigntime: ["${i}":it.Version],
                 Type:(it.Type=="IFlow"?"INTEGRATION_FLOW":(it.Type=="ValueMapping"?"VALUE_MAPPING":it.Type))
             ]
@@ -65,6 +82,31 @@ private addDesigntimeArtifacts(def system, def artifacts, def i){
       }
     }
     return artifacts
+}
+
+private addRuntimeArtifacts(def system, def artifacts, def i){
+	//Setup credentials
+	system.credential = getUserCreds(system.credentialName)
+
+	//Download runtime Artifacts
+	def runtimeArtifactsUrl = "https://${system.hostname}/api/v1/IntegrationRuntimeArtifacts"
+	def runtimeArtifactsList = runtimeArtifactsUrl.toURL().getText([requestProperties:[Authorization:system.credential.basicAuth,"Accept":"application/json"]])
+	def runtimeArtifactsJson = new JsonSlurper().parseText(runtimeArtifactsList)
+	runtimeArtifactsJson.d.results.each{
+    if (artifacts.containsKey(it.Name)){
+        artifacts[it.Id].VersionRuntime << ["${i}":it.Version]
+    } else {
+        artifacts[it.Id]= [
+            Id:it.Id,
+            Name:it.Name,
+            DesigntimePackage:["${i}":"N/A"],
+            VersionRuntime:["${i}":it.Version],
+            VersionDesigntime: ["${i}":"N/A"],
+            Type:it.Type
+        ]
+    }
+  }
+  return artifacts
 }
 
 /* Returns the different systems as an array */
