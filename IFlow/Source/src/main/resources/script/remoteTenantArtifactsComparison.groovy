@@ -40,7 +40,14 @@ Message processData(Message message) {
 			if((artifacts[artifact.key].get('VersionDesigntime').get("${it}") == "-") && !(artifacts[artifact.key].get('VersionRuntime').get("${it}") == "-")) {
 				 findings += "Available on Runtime [${it}] but not on Designtime [${it}] | "
 				 artifacts[artifact.key].Severity = "CRITICAL"
-			} else if(artifacts[artifact.key].get('VersionDesigntime').get("${it}") == "-") {
+			}
+			if(artifacts[artifact.key].get('VersionDesigntime').get("${it}") != artifacts[artifact.key].get('VersionRuntime').get("${it}")) {
+				 findings += "Different Version on Runtime and Designtime [${it}] | "
+				 if(artifacts[artifact.key].Severity == "OK") {
+					 artifacts[artifact.key].Severity = "WARNING"
+				 }
+			}
+			if(artifacts[artifact.key].get('VersionDesigntime').get("${it}") == "-") {
 				 findings += "Not available on Designtime [${it}] | "
 				 if(artifacts[artifact.key].Severity == "OK") {
 					 artifacts[artifact.key].Severity = "WARNING"
