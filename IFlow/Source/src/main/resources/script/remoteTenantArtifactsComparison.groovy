@@ -25,17 +25,21 @@ Message processData(Message message) {
 
   // Improve artifacts - set missing versions
   artifacts.each{artifact ->
+		def findings = ""
     0.upto(i-1, {
       if(!artifacts[artifact.key].get("VersionDesigntime").containsKey("${it}")){
-        artifacts[artifact.key].VersionDesigntime << ["${it}":"N/A"]
+        artifacts[artifact.key].VersionDesigntime << ["${it}":"-"]
       }
       if(!artifacts[artifact.key].get("VersionRuntime").containsKey("${it}")){
-        artifacts[artifact.key].VersionRuntime << ["${it}":"N/A"]
+        artifacts[artifact.key].VersionRuntime << ["${it}":"-"]
       }
       if(!artifacts[artifact.key].get("DesigntimePackage").containsKey("${it}")){
-        artifacts[artifact.key].DesigntimePackage << ["${it}":"N/A"]
+        artifacts[artifact.key].DesigntimePackage << ["${it}":"-"]
       }
     })
+		if(findings.length() > 0) {
+			artifacts[artifact.key].Remarks = findings.substring(0, findings.length() - 3)
+		}
   }
 
   result.artifacts = artifacts
@@ -66,18 +70,18 @@ private addDesigntimeArtifacts(def system, def artifacts, def i){
     json.d.results.each{
         if (artifactsOut.containsKey(it.Name)){
             artifactsOut[it.Name].VersionDesigntime << ["${i}":it.Version]
-            artifactsOut[it.Name].VersionRuntime << ["${i}":"N/A"]
+            artifactsOut[it.Name].VersionRuntime << ["${i}":"-"]
             artifactsOut[it.Name].DesigntimePackage << ["${i}":packageDisplayname]
         } else {
             artifactsOut[it.Name]= [
                 Id:it.Name,
                 Name:it.DisplayName,
                 DesigntimePackage:["${i}":packageDisplayname],
-                VersionRuntime:["${i}":"N/A"],
+                VersionRuntime:["${i}":"-"],
                 VersionDesigntime: ["${i}":it.Version],
-                Type:(it.Type=="IFlow"?"INTEGRATION_FLOW":(it.Type=="ValueMapping"?"VALUE_MAPPING":it.Type))
+                Type:(it.Type=="IFlow"?"INTEGRATION_FLOW":(it.Type=="ValueMapping"?"VALUE_MAPPING":it.Type)),
+								Remarks:''
             ]
-            //TODO: if i>0 than set old versions to ----
         }
       }
     }
@@ -99,10 +103,11 @@ private addRuntimeArtifacts(def system, def artifacts, def i){
         artifacts[it.Id]= [
             Id:it.Id,
             Name:it.Name,
-            DesigntimePackage:["${i}":"N/A"],
+            DesigntimePackage:["${i}":"-"],
             VersionRuntime:["${i}":it.Version],
-            VersionDesigntime: ["${i}":"N/A"],
-            Type:it.Type
+            VersionDesigntime: ["${i}":"-"],
+            Type:it.Type,
+						Remarks:''
         ]
     }
   }
