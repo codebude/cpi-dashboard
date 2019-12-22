@@ -23,9 +23,10 @@ Message processData(Message message) {
     i++
 	}
 
-  // Improve artifacts - set missing versions
+  // Improve artifacts - set missing versions and evaluate issues
   artifacts.each{artifact ->
 		def findings = ""
+		artifacts[artifact.key].Severity = "OK"
     0.upto(i-1, {
       if(!artifacts[artifact.key].get("VersionDesigntime").containsKey("${it}")){
         artifacts[artifact.key].VersionDesigntime << ["${it}":"-"]
@@ -36,6 +37,21 @@ Message processData(Message message) {
       if(!artifacts[artifact.key].get("DesigntimePackage").containsKey("${it}")){
         artifacts[artifact.key].DesigntimePackage << ["${it}":"-"]
       }
+			if((artifacts[artifact.key].get('VersionDesigntime').get("${it}") == "-") && !(artifacts[artifact.key].get('VersionRuntime').get("${it}") == "-")) {
+				 findings += "Available on Runtime [${it}] but not on Designtime [${it}] | "
+				 artifacts[artifact.key].Severity = "CRITICAL"
+			} else if(artifacts[artifact.key].get('VersionDesigntime').get("${it}") == "-") {
+				 findings += "Not available on Designtime [${it}] | "
+				 if(artifacts[artifact.key].Severity == "OK") {
+					 artifacts[artifact.key].Severity = "WARNING"
+				 }
+			}
+			if(!(artifacts[artifact.key].get('VersionDesigntime').get("${it}") == "-") && (artifacts[artifact.key].get('VersionRuntime').get("${it}") == "-")) {
+				 findings += "Not available on Runtime [${it}] | "
+				 if(artifacts[artifact.key].Severity == "OK") {
+					 artifacts[artifact.key].Severity = "WARNING"
+				 }
+			}
     })
 		if(findings.length() > 0) {
 			artifacts[artifact.key].Remarks = findings.substring(0, findings.length() - 3)
