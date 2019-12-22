@@ -59,6 +59,20 @@ Message processData(Message message) {
 					 artifacts[artifact.key].Severity = "WARNING"
 				 }
 			}
+			if(it > 0) {
+				if(artifacts[artifact.key].get('VersionRuntime').get("${it}") != artifacts[artifact.key].get('VersionRuntime').get("${it-1}")) {
+					findings += "Different Versions on Runtime of [${it}] and [${it-1}] | "
+					 if(artifacts[artifact.key].Severity == "OK") {
+						 artifacts[artifact.key].Severity = "WARNING"
+					 }
+				}
+				if(artifacts[artifact.key].get('VersionDesigntime').get("${it}") != artifacts[artifact.key].get('VersionDesigntime').get("${it-1}")) {
+					 findings += "Different Versions on Designtime of [${it}] and [${it-1}] | "
+					 if(artifacts[artifact.key].Severity == "OK") {
+						 artifacts[artifact.key].Severity = "WARNING"
+					 }
+				}
+			}
     })
 		if(findings.length() > 0) {
 			artifacts[artifact.key].Remarks = findings.substring(0, findings.length() - 3)
