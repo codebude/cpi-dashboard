@@ -5370,7 +5370,7 @@ a.badge-info:focus, a.badge-info.focus {
 
 .badge-warning {
   color: #fff;
-  background-color: #ffd97a;
+  background-color: #ffc107;
 }
 
 a.badge-warning:hover, a.badge-warning:focus {
@@ -5386,7 +5386,7 @@ a.badge-warning:focus, a.badge-warning.focus {
 
 .badge-danger {
   color: #fff;
-  background-color: #f3a199;
+  background-color: #dc3545;
 }
 
 a.badge-danger:hover, a.badge-danger:focus {
