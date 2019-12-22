@@ -1528,13 +1528,14 @@
   <!-- Diffviewer -->
   <script src="vendor/diff2html/diff2html.min.js" integrity="sha256-cTH7epla2XtsxlSV0eHjVwQ8WLbvbs57MPtOh4K7DjM=" crossorigin="anonymous"></script>
 
-  <!-- Scripts for local development scripts -->
-  <script src="../../status.json"></script>
-  <script src="../../securitymaterial.json"></script>
-  <script src="../../alertrules.json"></script>
-  <script src="../../iFlowPackageContent.json"></script>
-  <script src="../../scheduler.json"></script>
-  <script src="../../diffResult.json"></script>
+  <!-- Scripts for local development scripts. Empty, if productive output -->
+  <script src="status.json"></script>
+  <script src="securitymaterial.json"></script>
+  <script src="artifacts.json"></script>
+  <script src="alertrules.json"></script>
+  <script src="iFlowPackageContent.json"></script>
+  <script src="scheduler.json"></script>
+  <script src="diffResult.json"></script>
 
   <script type="text/javascript">
     var autoRefreshTimer
@@ -1621,7 +1622,7 @@
     })
 
     function loadDashboardData() {
-      if (window.location.protocol == "file:") {
+      if (window.location.protocol == "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
         //developer mode
         renderPage(sampleStatus)
       } else {
@@ -1944,7 +1945,7 @@
 
     function loadPackageContent() {
       try {
-        if (window.location.protocol == "file:") {
+        if (window.location.protocol == "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
           renderPackageContent(iFlowPackageContent)
         } else {
           $.ajax({
@@ -1973,7 +1974,7 @@
 
     function loadIFlowScheduler() {
       try {
-        if (window.location.protocol == "file:") {
+        if (window.location.protocol == "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
           renderIFlowScheduler(scheduler)
         } else {
           $.ajax({
@@ -2002,7 +2003,7 @@
 
     function loadAlertRules() {
       try {
-        if (window.location.protocol == "file:") {
+        if (window.location.protocol == "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
           renderAlertRules(alertrules)
         } else {
           $.ajax({
@@ -2486,7 +2487,7 @@
     function loadSecurityMaterial() {
       try {
         $('.loading').fadeIn(250)
-        if (window.location.protocol == "file:") {
+        if (window.location.protocol == "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
           renderSecurityMaterial(secmat)
         } else {
           $.ajax({
