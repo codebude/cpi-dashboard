@@ -1582,7 +1582,6 @@
     }
 
     $(document).ready(function() {
-
       //DEBUG
       //$('#modal-diffutils').modal('show')
       //setTimeout(function(){renderDiffResult(diffResult)},1500)
@@ -2005,7 +2004,7 @@
 
         // Prepare Remarks as List
         if (artifacts[key].Remarks != "") {
-          var remarks = artifacts[key].Remarks.split(' | ')
+          var remarks = artifacts[key].Remarks.split('|')
           var remarksHTML = "<ul>"
           remarks.forEach(function(remark) {
             remarksHTML += "<li>" + remark + "</li>"
@@ -2066,7 +2065,7 @@
       return {}
     }
 
-    // Enables popup of renderArtifactsTableRowAttributes
+    // Enables popover of renderArtifactsTableRowAttributes
     $(function() {
       $('#artifacts').on('post-body.bs.table', function(e) {
         $('[data-toggle="popover"]').popover()
