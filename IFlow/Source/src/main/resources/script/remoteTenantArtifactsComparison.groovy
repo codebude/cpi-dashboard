@@ -76,7 +76,7 @@ Message processData(Message message) {
 			}
     })
 		if(findings.length() > 0) {
-			artifacts[artifact.key].Remarks = findings.substring(0, findings.length() - 3)
+			artifacts[artifact.key].Remarks = findings.substring(0, findings.length() - 1)
 		}
   }
 
