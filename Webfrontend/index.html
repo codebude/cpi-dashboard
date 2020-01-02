@@ -961,9 +961,20 @@
                 </div>
                 <div id="caller-container" class="card-body">
                   <b>Username: </b><span id="user-name">xxx</span><br />
-                  <b>Can access dashboard: </b><span id="user-scope-dash"></span><br />
-                  <b>Can access logfiles: </b><span id="user-scope-log"></span><br />
-                  <b>Can access passwords: </b><span id="user-scope-pass"></span><br />
+                  <table style="border-width:0px">
+					<tr>
+					  <td><b>Can access dashboard: </b></td>
+					  <td style="padding-right:15px"><span id="user-scope-dash"></span></td>
+					  <td><b>Can access logfiles: </b></td>
+					  <td><span id="user-scope-log"></span></td>
+					</tr>
+					<tr>
+					  <td><b>Can access passwords: </b></td>
+					  <td><span id="user-scope-pass"></span></td>
+					  <td><b>Can access OSGi shell: </b></td>
+					  <td><span id="user-scope-shell"></span></td>
+					</tr>
+				  </table><br />
                   <b>Assigned roles: </b><br />
                   <textarea class="form-control text-monospace" rows="5" readonly></textarea>
                 </div>
@@ -1889,6 +1900,7 @@
         $('#user-scope-dash').html(`<i class="text-${data[3].cpiInfo.currentCaller.dashboardScopes.generalAccess?'success':'danger'} fas fa-${data[3].cpiInfo.currentCaller.dashboardScopes.generalAccess?'check':'times'}"></i>`) //
         $('#user-scope-log').html(`<i class="text-${data[3].cpiInfo.currentCaller.dashboardScopes.logAndFileAccess?'success':'danger'} fas fa-${data[3].cpiInfo.currentCaller.dashboardScopes.logAndFileAccess?'check':'times'}"></i>`)
         $('#user-scope-pass').html(`<i class="text-${data[3].cpiInfo.currentCaller.dashboardScopes.passwordAccess?'success':'danger'} fas fa-${data[3].cpiInfo.currentCaller.dashboardScopes.passwordAccess?'check':'times'}"></i>`)
+		$('#user-scope-shell').html(`<i class="text-${data[3].cpiInfo.currentCaller.dashboardScopes.shellAccess?'success':'danger'} fas fa-${data[3].cpiInfo.currentCaller.dashboardScopes.shellAccess?'check':'times'}"></i>`)
         var htmlScpRoles = ""
         $.each(data[3].cpiInfo.currentCaller.cloudPlatformRoles, function(i, v) {
           htmlScpRoles += `${v}\r\n`

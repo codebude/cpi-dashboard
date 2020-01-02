@@ -30,9 +30,11 @@ def Message processData(Message message) {
     
     def userName = message.getHeaders().get("SapAuthenticatedUserName")
     def rolePasswordAccess = message.getProperties().get("rolePasswordAccess")
+	def roleShellAccess = message.getProperties().get("roleNameShellAccess")
     def roleGeneralAccess = message.getProperties().get("roleNameGeneralAccess")
     def roleLogAndFileAccess = message.getProperties().get("roleNameLogAndFileAccess")
     def scopePasswordAccess = message.getProperties().get("userRoles").contains(rolePasswordAccess)
+	def scopeShellAccess = message.getProperties().get("userRoles").contains(roleShellAccess)
     def scopeGeneralAccess = message.getProperties().get("userRoles").contains(roleGeneralAccess)
     def scopeLogAndFileAccess = message.getProperties().get("userRoles").contains(roleLogAndFileAccess)
        
@@ -331,7 +333,8 @@ def Message processData(Message message) {
 	        dashboardScopes:[
 	            generalAccess:scopeGeneralAccess,
 	            logAndFileAccess:scopeLogAndFileAccess,
-	            passwordAccess:scopePasswordAccess
+	            passwordAccess:scopePasswordAccess,
+				shellAccess:scopeShellAccess
 	        ]
 	    ],
 	    messageCountInfo:msgCountList,
