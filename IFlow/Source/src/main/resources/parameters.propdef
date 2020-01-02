@@ -186,14 +186,6 @@
       </additionalMetadata>
    </parameter><parameter>
       <key/>
-      <name>ALERT_MAIL_SERVER_PROXY</name>
-      <type>xsd:string</type>
-      <isRequired>false</isRequired>
-      <constraint/>
-      <description/>
-      <additionalMetadata/>
-   </parameter><parameter>
-      <key/>
       <name>ROLE_SECURITY_MAT_ACCESS</name>
       <type>xsd:string</type>
       <isRequired>false</isRequired>
