@@ -25,6 +25,7 @@ def Message processData(Message message) {
     def generalAccessRole = message.getProperties().get('roleNameGeneralAccess')
     def logAndFileAccessRole = message.getProperties().get('roleNameLogAndFileAccess')
 	def rolePasswordAccess = message.getProperties().get('rolePasswordAccess')
+	def shellAccessRole = message.getProperties().get('roleNameShellAccess')
     
     //Check for general access right
     if(!message.getProperties().get("userRoles").contains(generalAccessRole)){
@@ -39,6 +40,11 @@ def Message processData(Message message) {
 	//If the request came via /securitymaterial-path, check additional role
     if (contextPath.startsWith("${dashboardUrlBase}/securitymaterial") && !message.getProperties().get("userRoles").contains(rolePasswordAccess)){
         throw new Exception("User ${callingUser} not authorized to read security material. Missing role: '${rolePasswordAccess}'.")    
+    }
+	
+	//If the request came via /shell-path, check additional role
+    if (contextPath.startsWith("${dashboardUrlBase}/shell") && !message.getProperties().get("userRoles").contains(shellAccessRole)){
+        throw new Exception("User ${callingUser} not authorized to execute shell commands. Missing role: '${shellAccessRole}'.")    
     }
     
     return message;
