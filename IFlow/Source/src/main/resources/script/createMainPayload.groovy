@@ -322,12 +322,6 @@ def Message processData(Message message) {
     //Get XSLT engine values
     def xsltValueList = new XmlSlurper().parseText(message.getProperties().get('cacheXSLT'))
     
-    //Flatten artifacts HashMap
-    def artifactsDeep = message.getProperties().get('artifactList')
-    def artifactsFlat = []
-    artifactsDeep.each {
-        artifactsFlat.push(it.value)
-    }
     
     //Write cpiInfo node
 	systemStatus.push(cpiInfo:[
@@ -340,7 +334,6 @@ def Message processData(Message message) {
 	            passwordAccess:scopePasswordAccess
 	        ]
 	    ],
-	    artifactsStateInfo:artifactsFlat,
 	    messageCountInfo:msgCountList,
 	    versionInfo:[
 	        cpiVersion:cpiVersion,
