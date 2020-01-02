@@ -24,6 +24,7 @@ def Message processData(Message message) {
     def dashboardUrlBase = message.getProperties().get('dashboardUrlBase')
     def generalAccessRole = message.getProperties().get('roleNameGeneralAccess')
     def logAndFileAccessRole = message.getProperties().get('roleNameLogAndFileAccess')
+	def rolePasswordAccess = message.getProperties().get('rolePasswordAccess')
     
     //Check for general access right
     if(!message.getProperties().get("userRoles").contains(generalAccessRole)){
@@ -33,6 +34,11 @@ def Message processData(Message message) {
     //If the request came via /download-path, check additional role
     if (contextPath.startsWith("${dashboardUrlBase}/view") && !message.getProperties().get("userRoles").contains(logAndFileAccessRole)){
         throw new Exception("User ${callingUser} not authorized to download files. Missing role: '${logAndFileAccessRole}'.")    
+    }
+	
+	//If the request came via /securitymaterial-path, check additional role
+    if (contextPath.startsWith("${dashboardUrlBase}/securitymaterial") && !message.getProperties().get("userRoles").contains(rolePasswordAccess)){
+        throw new Exception("User ${callingUser} not authorized to read security material. Missing role: '${rolePasswordAccess}'.")    
     }
     
     return message;
