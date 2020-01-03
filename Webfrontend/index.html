@@ -1211,7 +1211,7 @@
                   <div class="mt-0 mb-4 card bg-secondary shadow">
                     <div class="text-white card-body p-2">
                       <div class="input-group">
-                        <input id="inp-shell-command" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+                        <input placeholder="help" id="inp-shell-command" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
                         <div class="input-group-append">
                           <button id="btn-shell-exec" type="button" class="btn btn-success">Execute</button>
                           <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -1222,6 +1222,7 @@
                           </div>
                         </div>
                       </div>
+                      <small>Tip: You can press the "Enter" key to execute a command. Use the up and down arrow keys to search through your command history.</small>
                     </div>
                   </div>
                   <div id="txtarea-shell" style="font-family: Consolas,monaco,monospace;color:goldenrod;background-color:black;width:100%;height:400px;font-size: 10pt;padding:10px;overflow:auto;overflow-wrap:normal;"></div>
@@ -1618,6 +1619,10 @@
     var autoRefreshTimer
     var initialLoad = true
     var cacheAlertRules
+    var shellExecuting = false
+    var shellWindowContent = ""
+    var shellHistory = []
+    var shellHistoryIndex = -1
 
     function cleanAlertConfig() {
       $('#alert-conf-name').prop('readonly', false)
@@ -1670,8 +1675,22 @@
 
       //Add shell handlers
       $('#inp-shell-command').on('keyup', function (e) {
-        if (e.keyCode === 13) {
+        if (e.keyCode === 13) { //Enter-Key
           executeShellCommand()
+        } else if (e.keyCode === 38) { //Arrow up-key
+          if (shellHistory.length > 0){            
+            if (shellHistoryIndex > 0){
+              shellHistoryIndex--
+            }
+            $("#inp-shell-command").val(shellHistory[shellHistoryIndex])
+          }
+        } else if (e.keyCode === 40) { //Arrow down-key
+          if (shellHistory.length > 0){            
+            if (shellHistoryIndex < (shellHistory.length-1)){
+              shellHistoryIndex++
+            }
+            $("#inp-shell-command").val(shellHistory[shellHistoryIndex])
+          }
         }
       })
 
@@ -1743,8 +1762,7 @@
       }
     }
 
-    var shellExecuting = false
-    var shellWindowContent = ""
+    
     function executeShellCommand(){
       if (!shellExecuting){
         shellExecuting = true
@@ -1753,6 +1771,8 @@
         //Grab command and clear cmd input
         var cmd = $("#inp-shell-command").val()
         $("#inp-shell-command").val('')
+        shellHistory.push(cmd)
+        shellHistoryIndex = shellHistory.length
 
         try {
           $.ajax({
@@ -1766,7 +1786,7 @@
             url: "<<ENDPOINT_SHELL>>"
           }).done(function(result) {
             console.log("Got response from CPI for shell exec command");
-            shellWindowContent += result.outStream + (result.errStream != "<span style='color:red;'></span>" ? "<br/>"+result.errStream:"") + "<br/>"
+            shellWindowContent += (result.outStream!=undefined?result.outStream:"<b>Unknown command</b>") + (result.errStream!=undefined && result.errStream != "<span style='color:red;'></span>" ? "<br/>"+result.errStream:"") + "<br/>"
             $('#txtarea-shell').html(shellWindowContent)
             $("#txtarea-shell").animate({ scrollTop: $('#txtarea-shell').prop("scrollHeight")}, 250)
             $('#btn-shell-exec').removeClass('disabled')
