@@ -1,5 +1,9 @@
+Param(
+	[string]$mode = "dist" #Default mode is dist, if not given as start parameter
+)
+
 function Resolve-Css-References([String] $contents, [ref][int] $pNumRef, $parentPath, $resolveWeb){       
-    Write-Host "New File ----------------"
+    Write-Host "Resolving ($parentPath)"
     $regex = [regex] 'url\([''"]?([^)]+?)[''"]?\)'
     $allmatches = $regex.Matches($contents);
     $allmatches | ForEach-Object {
@@ -94,13 +98,16 @@ function Format-FileSize([int]$size) {
 }
 
 cls
-
+Write-Host "Running in '${mode}'-mode."
 
 $resolveWeb=0
 $inputfile="index.html"
+$delStaticContFile="../IFlow/Source/src/main/resources/script/deliverStaticContent.groovy"
+$delStaticContFileWorkingCopy="./dist/deliverStaticContent.groovy"
 $content=Get-Content -Path $inputfile
 $reg = '<(?<type>script|link)\s+(src|href)="(?<path>[^"]+)".+?((rel|type)="(?<subtype>[^"]+)")?(</script>|>)'
 $numRef=0
+
 gc $inputfile | Select-String -Pattern $reg -AllMatches | ForEach-Object {
     #Write-Host "$($_.matches.groups[6].value)"
     #Full match $($_.matches.groups[0].value)  
@@ -124,6 +131,7 @@ gc $inputfile | Select-String -Pattern $reg -AllMatches | ForEach-Object {
     } else {
         #js
         if ($url -ne "../../status.json" -and $url -ne "../../securitymaterial.json" -and $url -ne "../../artifacts.json" -and $url -ne "../../alertrules.json" -and $url -ne "../../scheduler.json" -and $url -ne "../../iFlowPackageContent.json" -and $url -ne "../../diffResult.json" -and $url -ne "status.json" -and $url -ne "securitymaterial.json" -and $url -ne "artifacts.json" -and $url -ne "alertrules.json" -and $url -ne "scheduler.json" -and $url -ne "iFlowPackageContent.json" -and $url -ne "diffResult.json") {
+			Write-Host "Resolving ($url)"
             $token="<script type='text/javascript'>"+$inlineContent+"</script>"
         } else {
             $token=""
@@ -133,14 +141,16 @@ gc $inputfile | Select-String -Pattern $reg -AllMatches | ForEach-Object {
     if ($inlineContent -ne ""){
         $content=$content.Replace($($_.matches.groups[0].value),$token)
     }
-} 
+}
+Write-Host "Writing cleaned and merged HTML file to disk."
 $targetfile="./dist/index.html"
 $content | out-file $targetfile
 Write-Host "======================================="
 Write-Host "Successfully packed '$inputfile' to '$targetfile'. Size of target file: $(Format-FileSize((Get-Item $targetfile).length)). Resolved $numRef references."
+Write-Host "======================================="
+Write-Host "Converting index.html to base64-file."
 ConvertTo-Base64($targetfile)("./dist/index_base64.txt")
 Write-Host "Created Base64 file for CPI import."
-
 
 $b64 = get-content -Path "./dist/index_base64.txt" | Out-String
 $b64Arr = $b64.ToCharArray()
@@ -158,3 +168,20 @@ for ($i=0; $i -lt $factor; $i++) {
 $start=$factor*$blockSize
 $out+= "`"$(-join $b64Arr[$start..$b64Arr.Length])`""
 $out | out-file "./dist/staticContent.groovy"
+Write-Host "======================================="
+Write-Host "Cleaning up dist-folder."
+Remove-Item $targetfile
+Remove-Item "./dist/index_base64.txt"
+
+if ($mode -eq "integral"){	
+	Write-Host "Entering integral/full mode."	
+	Copy-Item $delStaticContFile -Destination $delStaticContFileWorkingCopy	
+	$search = "(?ms)//BEGIN_STATIC_CONTENT.*//END_STATIC_CONTENT"
+	$value = (Get-Content "./dist/staticContent.groovy" -Raw)
+	$replace = "//BEGIN_STATIC_CONTENT`r`n`t$value`r`n`t//END_STATIC_CONTENT"
+	$content=(Get-Content $delStaticContFileWorkingCopy -Raw) -replace $search, $replace
+	Set-Content $delStaticContFileWorkingCopy $content -Encoding UTF8
+	Copy-Item $delStaticContFileWorkingCopy -Destination $delStaticContFile
+	Remove-Item $delStaticContFileWorkingCopy
+}
+
