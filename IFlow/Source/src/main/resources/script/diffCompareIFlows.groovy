@@ -65,8 +65,18 @@ private buildIflowDiff(def iFlow1, def iFlow2){
 }
 
 private getIFlowBytes(def iFlow){
+	
+	//Check if latest or specific version is selected
+	def iflVersion = iFlow.versionSemanticSelected != "Latest version" ? iFlow.versionSemanticSelected : "active"
+	
+	//In case the user selected not the newest version, we have to do a rollback
+	def rollbackNeeded = iFlow.versionSemanticSelected != "Latest version" && (iFlow.versionSemanticSelected != iFlow.versionSemanticCurrent || iFlow.versionTechnicalSelected != iFlow.versionTechnicalCurrent)
+	if (rollbackNeeded){
+		rollbackIFlow(iFlow, false)
+	}
+	
 	//Get metadata
-	def pkgMetaUrl = "https://${iFlow.hostname}/api/v1/IntegrationDesigntimeArtifacts(Id='${iFlow.iFlowId}',Version='active')"
+	def pkgMetaUrl = "https://${iFlow.hostname}/api/v1/IntegrationDesigntimeArtifacts(Id='${iFlow.iFlowId}',Version='${iflVersion}')"
 	def pkgMeta = pkgMetaUrl.toURL().getText([requestProperties:[Authorization:iFlow.credential.basicAuth,"Accept":"application/xml"]])
 	
 	//Retrieve package url
@@ -74,7 +84,52 @@ private getIFlowBytes(def iFlow){
 	def pkgDlUrl = "https://${iFlow.hostname}/api/v1/${pkgMetaXml.'**'.find{it.name() == 'link' && it.@rel.text() == 'edit-media'}.@href.text()}"
 	
 	//Download package
-	return pkgDlUrl.toURL().getBytes([requestProperties:[Authorization:iFlow.credential.basicAuth,"Accept":"application/xml"]])
+	def artifactBytes = pkgDlUrl.toURL().getBytes([requestProperties:[Authorization:iFlow.credential.basicAuth,"Accept":"application/xml"]])
+	
+	//If rollback was needed, turn back original state
+	if (rollbackNeeded){
+		rollbackIFlow(iFlow, true)
+	}
+	
+	return artifactBytes
+}
+
+private rollbackIFlow(def iFlow, def toCurrentVersion){
+	def rollbackUrlStr = "https://${iFlow.hostname}/itspaces/api/1.0/workspace/${iFlow.packageRegId}/artifacts/${iFlow.iFlowRegId}?webdav=UPDATE"
+		
+	//Get X-CSRF-Token
+	def rollbackUrl = rollbackUrlStr.toURL().openConnection()
+	rollbackUrl.setRequestMethod("GET")
+	rollbackUrl.setRequestProperty("Authorization", iFlow.credential.basicAuth)
+	rollbackUrl.setRequestProperty("X-CSRF-Token", "Fetch")
+	def xsrfToken =  rollbackUrl.getHeaderField("X-CSRF-Token")
+	def cookies = []
+	for (int i = 0;; i++) {
+		  if (rollbackUrl.getHeaderFieldKey(i) == null && rollbackUrl.getHeaderField(i) == null) {
+			break;
+		  }
+		  if ("Set-Cookie".equalsIgnoreCase(rollbackUrl.getHeaderFieldKey(i))) {
+			cookies << rollbackUrl.getHeaderField(i).split(";")[0]
+		  }
+	}
+	
+	//Do rollback to target version
+	def versionSemantic = toCurrentVersion ? iFlow.versionSemanticCurrent : iFlow.versionSemanticSelected
+	def versionTechnical = toCurrentVersion ? iFlow.versionTechnicalCurrent : iFlow.versionTechnicalSelected
+	
+	//Rewrite artifact history/set new active version
+	rollbackUrl = rollbackUrlStr.toURL().openConnection()
+	rollbackUrl.setRequestMethod("PUT")
+	rollbackUrl.setRequestProperty("Authorization", iFlow.credential.basicAuth)
+	rollbackUrl.setRequestProperty("X-CSRF-Token", xsrfToken)
+	rollbackUrl.setRequestProperty("Cookie", cookies.join(';'))
+	
+	//Set change body/payload
+	def payload = "{\"technicalVersion\":${versionTechnical},\"comment\":\"SAP CPI Dashboard automatic rollback via diffutils addon.\",\"semanticVersion\":\"${versionSemantic}\"}"
+	rollbackUrl.setDoOutput(true)
+	rollbackUrl.setRequestProperty("Content-Type", "application/json")
+	rollbackUrl.getOutputStream().write(payload.getBytes("UTF-8"))
+	def postRC = rollbackUrl.getResponseCode()
 }
 
 private getUserCreds(def credentialName){

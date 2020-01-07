@@ -1,0 +1,22 @@
+var iFlowVersions = {
+  "count": 1,
+  "result": {
+    "versionList": [
+      {
+        "semanticVersion": "Draft",
+        "technicalVersion": 1,
+        "createdDate": "1576829282650",
+        "createdBy": "S0019443419",
+        "state": "workingcopy"
+      },
+      {
+        "comment": "Resource Created",
+        "semanticVersion": "1.0.0",
+        "technicalVersion": 1,
+        "createdDate": "1575368799303",
+        "createdBy": "S0019443419",
+        "state": "versioned"
+      }
+    ]
+  }
+}

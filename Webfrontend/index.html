@@ -1158,40 +1158,57 @@
                   <div id="diffutils-selector-container">
                     <b>Select first IFlow for comparison</b><br>
                     <div class="row" id="diff-sel-iflow1">
-                      <div class="col-4">
+                      <div class="col-3">
                         <select class="form-control" name="select-tenant-1" id="select-tenant-1">
                           <option>Loading ...</option>
                         </select>
                       </div>
-                      <div class="col-4">
+                      <div class="col-3">
                         <select class="form-control" name="select-package-1" id="select-package-1">
                           <option>Loading ...</option>
                         </select>
                       </div>
-                      <div class="col-4">
+                      <div class="col-3">
                         <select class="form-control" name="select-iflow-1" id="select-iflow-1">
                           <option>Loading ...</option>
                         </select>
                       </div>
+                      <div class="col-2">
+                        <select class="form-control" name="select-version-1" id="select-version-1" disabled>
+                          <option data="-1">Latest version</option>
+                        </select>
+                      </div>
+                      <div class="col-1">
+                        <button id="btn-diff-specific-1" class="btn btn-success"><small>Select vers.</small></button>
+                      </div>
                     </div>
                     <br /><b>Select second IFlow for comparison</b><br />
                     <div class="row" id="diff-sel-iflow2">
-                      <div class="col-4">
+                      <div class="col-3">
                         <select class="form-control" name="select-tenant-2" id="select-tenant-2">
                           <option>Loading ...</option>
                         </select>
                       </div>
-                      <div class="col-4">
+                      <div class="col-3">
                         <select class="form-control" name="select-package-2" id="select-package-2">
                           <option>Loading ...</option>
                         </select>
                       </div>
-                      <div class="col-4">
+                      <div class="col-3">
                         <select class="form-control" name="select-iflow-2" id="select-iflow-2">
                           <option>Loading ...</option>
                         </select>
                       </div>
+                      <div class="col-2">
+                        <select class="form-control" name="select-version-2" id="select-version-2" disabled>
+                          <option data="-1">Latest version</option>
+                        </select>
+                      </div>
+                      <div class="col-1">
+                        <button id="btn-diff-specific-2" class="btn btn-success"><small>Select vers.</small></button>
+                      </div>
                     </div>
+                    <div id="alert-diff-versioning" style="margin-top:15px;display:none" class="alert alert-warning" role="alert"><strong>Attention:</strong> If you use the diffutils on version level, the SAP CPI dashboard will do a temporary automatically version change/rollback on your IFlow. This is necessary, since SAP CPI doesn't allow direct access to older IFlow versions. Thus the dashboard will rollback your IFlow temporary to the selected version, download it for comparison/diff and then roll it back to the current active version.</div>
                     <br /><button class="btn btn-success" id="btn-compare-iflows" disabled>Create Diff</button>
                   </div>
                 </div>
@@ -1613,6 +1630,7 @@
   <script src="iFlowPackageContent.json"></script>
   <script src="scheduler.json"></script>
   <script src="diffResult.json"></script>
+  <script src="versionHistory.json"></script>
 
   <!-- Script for loading and displaying of the dashboard -->
   <script type="text/javascript">
@@ -1670,6 +1688,10 @@
 
       $('#btn-alerting-add').click(function() {
         alertCreate()
+      })
+
+      $('#btn-diff-specific-1,#btn-diff-specific-2').click(function(){
+        loadIFlowVersionHistory()
       })
 
 
@@ -2243,7 +2265,7 @@
             xhrFields: {
               withCredentials: true
             },
-            url: "<<ENDPOINT_DIFFUTILS>>"
+            url: "<<ENDPOINT_DIFFUTILS>>?mode=packages"
           }).done(function(iFlowPackageContent) {
             console.log("Got response from CPI for diffutils/package content");
             renderPackageContent(iFlowPackageContent);
@@ -2339,11 +2361,16 @@
           return x < y ? -1 : x > y ? 1 : 0;
         });
         $.each(v.content, function(ii, vv) {
-          var optPkg = `<option value="${v.system}">${vv.name}</option>`
+          var optPkg = `<option value="${v.system}" data-regid="${vv.reg_id}">${vv.name}</option>`
           if (htmlSelPackages.indexOf(optPkg) == -1)
             htmlSelPackages += optPkg
+          vv.iFlows.sort(function(a, b) {
+            var x = a.name.toLowerCase(),
+              y = b.name.toLowerCase();
+            return x < y ? -1 : x > y ? 1 : 0;
+          });
           $.each(vv.iFlows, function(iii, vvv) {
-            var optIfl = `<option value="${vv.name}" data="${vvv.id}">${vvv.name}</option>`
+            var optIfl = `<option value="${vv.name}" data="${vvv.id}" data-regid="${vvv.reg_id}">${vvv.name}</option>`
             if (htmlSelIFlows.indexOf(optIfl) == -1)
               htmlSelIFlows += optIfl
           })
@@ -2376,17 +2403,89 @@
       $('#select-package-1').on('change', function() {
         $('#select-iflow-1').html($optionsCacheIFlows1.filter(`[value="${this.options[this.selectedIndex].text}"]`));
         $('#select-iflow-1').val($("#select-iflow-1 option:first").val())
+        $('#select-iflow-1,select-iflow-2').trigger('change')
       }).trigger('change');
 
       $('#select-package-2').on('change', function() {
         $('#select-iflow-2').html($optionsCacheIFlows2.filter(`[value="${this.options[this.selectedIndex].text}"]`));
         $('#select-iflow-2').val($("#select-iflow-2 option:first").val())
+        $('#select-iflow-1,select-iflow-2').trigger('change')
       }).trigger('change');
 
-      $('#btn-compare-iflows').prop('disabled', '')
-      $('#btn-compare-iflows').click(function() {
-        loadIFlowDiff()
+      $('#select-iflow-1,#select-iflow-2').on('change', function() {
+        $('#select-version-1,#select-version-2').html('<option data="-1">Latest version</option>').prop('disabled', true)
+        $('#alert-diff-versioning').fadeOut(250)
       })
+      $('#btn-compare-iflows').prop('disabled', '')
+
+      $('#btn-compare-iflows').click(function() {        
+        if (!$('#select-version-1').prop('disabled') && ($("#select-version-1 option[value='Draft']").length !== 0 || $("#select-version-2 option[value='Draft']").length !== 0)){
+          var htmlError = `<h3 class="text-danger">Draft Error</h3><span class="text-monospace"><b>Error text:</b> The "compare IFlow on version level" feature can only be used, if both artifacts are saved as version. At least one of the two objects to be compared are in state "Draft". Please save both IFlows "as version" first.</span><br/>`
+          $('#modal-error-body').html(htmlError)     
+          $('#modal-error').modal('show')
+        } else {
+          loadIFlowDiff()
+        }
+      })
+    }
+
+    var loadIFlowVersionLoadCounter = 0 
+    function loadIFlowVersionHistory(){
+      $('.loading').fadeIn(250)
+      //Load first row
+      loadIFlowVersionLoadCounter++
+      loadIFlowVersionHistoryData($('#select-tenant-1').val(), $('#select-package-1 option:selected').attr('data-regid'), $('#select-iflow-1 option:selected').attr('data-regid'), '1')
+      //Load second row
+      loadIFlowVersionLoadCounter++
+      loadIFlowVersionHistoryData($('#select-tenant-2').val(), $('#select-package-2 option:selected').attr('data-regid'), $('#select-iflow-2 option:selected').attr('data-regid'), '2')      
+    }
+
+    function loadIFlowVersionHistoryData(hostname, packageRegId, iflowRegId, optionsId){
+      try {
+        if (window.location.protocol == "file:" || location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+          renderIFlowVersionHistory(iFlowVersions, optionsId)
+        } else {
+          $.ajax({
+            xhrFields: {
+              withCredentials: true
+            },
+            url: `<<ENDPOINT_DIFFUTILS>>?mode=versions&hostname=${hostname}&iflowId=${iflowRegId}&pkgId=${packageRegId}`
+          }).done(function(data) {
+            console.log("Got response from CPI for IFlow version history");
+            renderIFlowVersionHistory(data, optionsId)
+          }).fail(function(jqxhr, textStatus, error) {
+            console.log(textStatus)
+            console.log(error)
+            var err = jqxhr.responseJSON[0].error
+            var htmlError =
+              `<h3 class="text-danger">Error ${err.code}</h3>${err.message}<br/><br/><span class="text-monospace"><b>Error text:</b> ${err.exception.text}</span><br/><br/><div style="width:100%" class="text-center"><img src="${err.dogception}" style="width:80%;"></div>`
+            $('#modal-error-body').html(htmlError)
+            $('#modal-error').modal('show')
+          });
+        }
+      } catch (ex) {
+        alert(ex)
+        console.log(ex)
+      }
+      
+    }
+
+    function renderIFlowVersionHistory(data, optionsId){
+
+      var optionsHtml
+      $.each(data.result.versionList, function(i, v) {
+        optionsHtml += `<option value="${v.semanticVersion}" data="${v.technicalVersion}">${v.semanticVersion}</option>`
+      })
+      $('#select-version-'+optionsId).html(optionsHtml)
+
+      //Mark as done
+      loadIFlowVersionLoadCounter--
+      //If last job, setup GUI
+      if (loadIFlowVersionLoadCounter == 0){
+        $('#select-version-1,#select-version-2').prop("disabled", false)
+        $('#alert-diff-versioning').fadeIn(250)
+        $('.loading').fadeOut(250)
+      }
     }
 
     function loadIFlowDiff() {
@@ -2395,15 +2494,27 @@
       $('#modal-diff-resultcontent').hide()
       $('#modal-diffutils').modal('show')
 
-      //TODO
+      
       var iFlowCompSelection = {
         "iFlow1": {
           "hostname": $('#select-tenant-1 option:selected').val(),
-          "iFlowId": $('#select-iflow-1 option:selected').attr('data')
+          "iFlowId": $('#select-iflow-1 option:selected').attr('data'),
+          "versionSemanticSelected": $('#select-version-1 option:selected').val(),
+          "versionTechnicalSelected": $('#select-version-1 option:selected').attr('data'),
+          "versionSemanticCurrent": $('#select-version-1 option:first').val(),
+          "versionTechnicalCurrent": $('#select-version-1 option:first').attr('data'),
+          "iFlowRegId": $('#select-iflow-1 option:selected').attr('data-regid'),
+          "packageRegId": $('#select-package-1 option:selected').attr('data-regid')
         },
         "iFlow2": {
           "hostname": $('#select-tenant-2 option:selected').val(),
-          "iFlowId": $('#select-iflow-2 option:selected').attr('data')
+          "iFlowId": $('#select-iflow-2 option:selected').attr('data'),
+          "versionSemanticSelected": $('#select-version-2 option:selected').val(),
+          "versionTechnicalSelected": $('#select-version-2 option:selected').attr('data'),
+          "versionSemanticCurrent": $('#select-version-2 option:first').val(),
+          "versionTechnicalCurrent": $('#select-version-2 option:first').attr('data'),
+          "iFlowRegId": $('#select-iflow-2 option:selected').attr('data-regid'),
+          "packageRegId": $('#select-package-2 option:selected').attr('data-regid')
         }
       }
 
