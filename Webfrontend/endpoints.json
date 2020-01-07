@@ -1,0 +1,1783 @@
+var endpoints = {
+  "count": 1,
+  "result": [
+    {
+      "system": "p0401-tmn.hci.eu1.hana.ondemand.com",
+      "endpoints": {
+        "PR009_IF001_BS_http_to_BS_Mail_SendMail": {
+          "id": "05143a3e-8611-44e6-8fa5-c461d75c390d",
+          "symbolicName": "PR009_IF001_BS_http_to_BS_Mail_SendMail",
+          "name": "PR009_IF001_BS_http_to_BS_Mail_SendMail",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/https/pr009/if001/sendmail"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/https/pr009/if001/sendmail",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "accessValueMapsInScripts": {
+          "id": "0575e50a-aaea-466c-b346-ee915b0c0396",
+          "symbolicName": "accessValueMapsInScripts",
+          "name": "Accessing Value Maps in Scripts",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF011_Graphical_Mapping": {
+          "id": "0bb0d044-6440-405c-8428-3b5dff8c602c",
+          "symbolicName": "IF011_Graphical_Mapping",
+          "name": "PR004_IF011_Graphical_Mapping",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if011"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if011",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF011_Graphical_Mapping&servicePath=/soap/if011&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF011_Graphical_Mapping&servicePath=/soap/if011&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF001_BS_SoapUI_to_BS_HetznerSftp_FileUpload": {
+          "id": "126453a2-e9fd-47c5-8b13-043ef4837d0e",
+          "symbolicName": "PR004_IF001_BS_SoapUI_to_BS_HetznerSftp_FileUpload",
+          "name": "PR004_IF001_BS_SoapUI_to_BS_HetznerSftp_FileUpload",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/SOAP/pr004/if001/FileUpload"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/SOAP/pr004/if001/FileUpload",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR004_IF001_BS_SoapUI_to_BS_HetznerSftp_FileUpload&servicePath=/SOAP/pr004/if001/FileUpload&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR004_IF001_BS_SoapUI_to_BS_HetznerSftp_FileUpload&servicePath=/SOAP/pr004/if001/FileUpload&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR012_IF001_Telegram_to_CPI_WebhookHandler": {
+          "id": "14088ec3-37e7-4518-be31-2d892ea81b8b",
+          "symbolicName": "PR012_IF001_Telegram_to_CPI_WebhookHandler",
+          "name": "PR012_IF001_Telegram_to_CPI_WebhookHandler",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if001/webhookhandler",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if001/broadcast"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if001/webhookhandler",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if001/broadcast",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF027_SoapUI_to_BS_HetznerSftp": {
+          "id": "142371cd-1144-4dd1-8103-49eba4d6482d",
+          "symbolicName": "IF027_SoapUI_to_BS_HetznerSftp",
+          "name": "PR005_IF027_SoapUI_to_BS_HetznerSftp",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if027/sendEmployerData"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if027/sendEmployerData",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF027_SoapUI_to_BS_HetznerSftp&servicePath=/soap/if027/sendEmployerData&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF027_SoapUI_to_BS_HetznerSftp&servicePath=/soap/if027/sendEmployerData&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF1501_BS_SFTP_to_BS_IFLOW": {
+          "id": "15107c2d-093b-4d68-9817-9b793afe0c61",
+          "symbolicName": "PR004_IF1501_BS_SFTP_to_BS_IFLOW",
+          "name": "PR004_IF1501_BS_SFTP_to_BS_IFLOW",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR004_IF002_BS_http_to_BS_Mail_SendMail": {
+          "id": "2282b64d-6fd4-42fe-8ca4-09285bcba519",
+          "symbolicName": "PR004_IF002_BS_http_to_BS_Mail_SendMail",
+          "name": "PR004_IF002_BS_http_to_BS_Mail_SendMail",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/https/pr004/if002/sendmail"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/https/pr004/if002/sendmail",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF029_REST_to_Odata": {
+          "id": "231d4c72-76f8-4adc-87f9-f3728753c3d2",
+          "symbolicName": "PR004_IF029_REST_to_Odata",
+          "name": "PR004_IF029_REST_to_Odata",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/muni/odata01"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/muni/odata01",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF017_SoapUI_to_BS_GeoPluginNet_getLocationFromIP": {
+          "id": "23e062ba-8846-4e84-9142-7247ff186c09",
+          "symbolicName": "IF017_SoapUI_to_BS_GeoPluginNet_getLocationFromIP",
+          "name": "PR005_IF017_SoapUI_to_BS_GeoPluginNet_getLocationFromIP",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if017/getLocationFromIP"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if017/getLocationFromIP",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF017_SoapUI_to_BS_GeoPluginNet_getLocationFromIP&servicePath=/soap/if017/getLocationFromIP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF017_SoapUI_to_BS_GeoPluginNet_getLocationFromIP&servicePath=/soap/if017/getLocationFromIP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF022_REST_to_GoogleSheet_AppendRow": {
+          "id": "259dd46a-df05-445b-b92d-9bac9c3adf4a",
+          "symbolicName": "PR004_IF022_REST_to_GoogleSheet_AppendRow",
+          "name": "PR004_IF022_REST_to_GoogleSheet_AppendRow",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/googlesheet/appendrow"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/googlesheet/appendrow",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR001_IF003_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup": {
+          "id": "27690fd9-00de-44c0-ab4c-c0ac4539f5c3",
+          "symbolicName": "PR001_IF003_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "name": "PR001_IF003_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if003/geoilookup"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if003/geoilookup",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF003_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if003/geoilookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF003_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if003/geoilookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF007_Soap_to_HtmlLookup": {
+          "id": "29eaa2dc-1f1e-4153-a5e3-d0c61d93523e",
+          "symbolicName": "IF007_Soap_to_HtmlLookup",
+          "name": "PR004_IF007_Soap_to_HtmlLookup",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/HtmlLookup"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/HtmlLookup",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF007_Soap_to_HtmlLookup&servicePath=/Soap/HtmlLookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF007_Soap_to_HtmlLookup&servicePath=/Soap/HtmlLookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR006_IF007_BS_SoapUI_to_BS_HetznerSftp_IPtoFile": {
+          "id": "2d268c14-f51d-468f-8c26-4e1e5b4d7685",
+          "symbolicName": "PR006_IF007_BS_SoapUI_to_BS_HetznerSftp_IPtoFile",
+          "name": "PR006_IF007_BS_SoapUI_to_BS_HetznerSftp_IPtoFile",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if007/iptofile"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if007/iptofile",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF007_BS_SoapUI_to_BS_HetznerSftp_IPtoFile&servicePath=/soap/pr006/if007/iptofile&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF007_BS_SoapUI_to_BS_HetznerSftp_IPtoFile&servicePath=/soap/pr006/if007/iptofile&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF022_SoapUI_to_BS_HetznerSftp_SomethingHappensHere": {
+          "id": "2e7d3ad2-75c1-4bf1-aee4-c15cc65be46d",
+          "symbolicName": "IF022_SoapUI_to_BS_HetznerSftp_SomethingHappensHere",
+          "name": "PR005_IF022_SoapUI_to_BS_HetznerSftp_SomethingHappensHere",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if022/DoSomething/"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if022/DoSomething/",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF022_SoapUI_to_BS_HetznerSftp_SomethingHappensHere&servicePath=/soap/if022/DoSomething/&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF022_SoapUI_to_BS_HetznerSftp_SomethingHappensHere&servicePath=/soap/if022/DoSomething/&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "Webbrowser_to_CPI_CancelMessage": {
+          "id": "335d8c9e-2179-4a97-aebd-93a425b9406f",
+          "symbolicName": "Webbrowser_to_CPI_CancelMessage",
+          "name": "Webbrowser_to_CPI_CancelMessage",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/CancelMessage"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/CancelMessage",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF017_InternalParameters_to_MSTeams_and_GoogleSpreadsheet": {
+          "id": "3a9867ab-bb77-4c5b-b247-6c2dd1b2c3c7",
+          "symbolicName": "PR004_IF017_InternalParameters_to_MSTeams_and_GoogleSpreadsheet",
+          "name": "PR004_IF017_InternalParameters_to_MSTeams_and_GoogleSpreadsheet",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "Webbrowser_to_CPI_LongrunnerInterface": {
+          "id": "407da843-476a-4f5e-b0e2-5208042e69a2",
+          "symbolicName": "Webbrowser_to_CPI_LongrunnerInterface",
+          "name": "Webbrowser_to_CPI_LongrunnerInterface",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/longrunner"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/longrunner",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF012_SoapUI_to_GeoLocationAPI_GetIpPosition": {
+          "id": "444d8d9c-2469-423d-af65-88dbedbe9ba6",
+          "symbolicName": "IF012_SoapUI_to_GeoLocationAPI_GetIpPosition",
+          "name": "PR005_IF012_SoapUI_to_GeoLocationAPI_GetIpPosition",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if012/GetIpPosition"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if012/GetIpPosition",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF012_SoapUI_to_GeoLocationAPI_GetIpPosition&servicePath=/soap/if012/GetIpPosition&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF012_SoapUI_to_GeoLocationAPI_GetIpPosition&servicePath=/soap/if012/GetIpPosition&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF1503_BS_SFTP_to_BS_IFLOW": {
+          "id": "44a2b829-161e-410f-ba11-3311e6943be9",
+          "symbolicName": "PR004_IF1503_BS_SFTP_to_BS_IFLOW",
+          "name": "PR004_IF1503_BS_SFTP_to_BS_IFLOW",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/demotest/cpifilesystem/*",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/demotest/cpifilesystemdownload/*"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/demotest/cpifilesystem/*",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/demotest/cpifilesystemdownload/*",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF021_REST_to_CloudWorkFlow_TriggerCloudWorkflowFromCPI": {
+          "id": "46f262d5-6ce5-4b5b-8f2e-61a550c62c3d",
+          "symbolicName": "PR004_IF021_REST_to_CloudWorkFlow_TriggerCloudWorkflowFromCPI",
+          "name": "PR004_IF021_REST_to_CloudWorkFlow_TriggerCloudWorkflowFromCPI",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/product/triggerworkflow"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/product/triggerworkflow",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR001_IF005_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup": {
+          "id": "48caf473-f286-4620-b1d8-9ac7c951da1b",
+          "symbolicName": "PR001_IF005_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "name": "PR001_IF005_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if005/geoiplookup"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if005/geoiplookup",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF005_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if005/geoiplookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF005_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if005/geoiplookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF009_BS_Demo_to_BS_Multi_MeetTheExperts": {
+          "id": "4a63b332-976e-49b0-a929-11d74aa670b5",
+          "symbolicName": "PR004_IF009_BS_Demo_to_BS_Multi_MeetTheExperts",
+          "name": "PR004_IF009_BS_Demo_to_BS_Multi_MeetTheExperts",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/PR004/IF009/MeetTheExpertsDemo"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/PR004/IF009/MeetTheExpertsDemo",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR004_IF009_BS_Demo_to_BS_Multi_MeetTheExperts&servicePath=/soap/PR004/IF009/MeetTheExpertsDemo&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR004_IF009_BS_Demo_to_BS_Multi_MeetTheExperts&servicePath=/soap/PR004/IF009/MeetTheExpertsDemo&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR012_IF008_ApiClient_to_MSProjectOnline_TransparentProxy": {
+          "id": "51222046-80e7-4ea9-b02d-970520d267e1",
+          "symbolicName": "PR012_IF008_ApiClient_to_MSProjectOnline_TransparentProxy",
+          "name": "PR012_IF008_ApiClient_to_MSProjectOnline_TransparentProxy",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if007/proxy/*"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if007/proxy/*",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF025_CH_SoapUI_2_BS_HetznerSftp": {
+          "id": "5507f306-e0e4-48b0-ae71-8f6a79ac5956",
+          "symbolicName": "IF025_CH_SoapUI_2_BS_HetznerSftp",
+          "name": "PR005_IF025_CH_SoapUI_2_BS_HetznerSftp",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if025/SoapUI_2_BS_HetznerSftp"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if025/SoapUI_2_BS_HetznerSftp",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF025_CH_SoapUI_2_BS_HetznerSftp&servicePath=/soap/if025/SoapUI_2_BS_HetznerSftp&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF025_CH_SoapUI_2_BS_HetznerSftp&servicePath=/soap/if025/SoapUI_2_BS_HetznerSftp&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR005_IF041_CH_Soap_2_HetznerSftp_CSV": {
+          "id": "569b7813-367f-447b-afbc-03ad0021453e",
+          "symbolicName": "PR005_IF041_CH_Soap_2_HetznerSftp_CSV",
+          "name": "PR005_IF041_CH_Soap_2_HetznerSftp_CSV",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/IF041_CH_Soap_2_HetznerSftp_CSV"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/IF041_CH_Soap_2_HetznerSftp_CSV",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR005_IF041_CH_Soap_2_HetznerSftp_CSV&servicePath=/soap/IF041_CH_Soap_2_HetznerSftp_CSV&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR005_IF041_CH_Soap_2_HetznerSftp_CSV&servicePath=/soap/IF041_CH_Soap_2_HetznerSftp_CSV&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR011_IF001_CocktailBot_to_ScpDB_PersistBotStats": {
+          "id": "56fb5333-0242-4234-aea5-e2c9a4b686c1",
+          "symbolicName": "PR011_IF001_CocktailBot_to_ScpDB_PersistBotStats",
+          "name": "PR011_IF001_CocktailBot_to_ScpDB_PersistBotStats",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr011/if001/cocktailbot"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr011/if001/cocktailbot",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF008_BS_CPI_to_BS_GMail_CPIStatusReport": {
+          "id": "5867aea0-519b-4683-a550-2601319acc9e",
+          "symbolicName": "PR004_IF008_BS_CPI_to_BS_GMail_CPIStatusReport",
+          "name": "PR004_IF008_BS_CPI_to_BS_GMail_CPIStatusReport",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR004_IF018_Webbrowser_to_CPI_FileSystemExplorer": {
+          "id": "589abb0e-2ca0-4077-8c77-b55d3ed9953f",
+          "symbolicName": "PR004_IF018_Webbrowser_to_CPI_FileSystemExplorer",
+          "name": "PR004_IF018_Webbrowser_to_CPI_FileSystemExplorer",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/https/pr004/if018/cpifilesystem/*",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/https/pr004/if018/cpifilesystemdownload/*"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/https/pr004/if018/cpifilesystem/*",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/https/pr004/if018/cpifilesystemdownload/*",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF005_BS_CPI_to_BS_GMail_CPIStatusReport": {
+          "id": "5955af55-85fa-4d9f-81ae-e4c31796b4b2",
+          "symbolicName": "PR004_IF005_BS_CPI_to_BS_GMail_CPIStatusReport",
+          "name": "PR004_IF005_BS_CPI_to_BS_GMail_CPIStatusReport",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF036_SoapUI_to_Nager_NationalHolidays": {
+          "id": "5bf773f1-3a16-4847-95f6-41f98f71e3f5",
+          "symbolicName": "IF036_SoapUI_to_Nager_NationalHolidays",
+          "name": "PR005_IF036_SoapUI_to_Nager_NationalHolidays",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if001/GetNationalHolidays"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if001/GetNationalHolidays",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF036_SoapUI_to_Nager_NationalHolidays&servicePath=/soap/if001/GetNationalHolidays&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF036_SoapUI_to_Nager_NationalHolidays&servicePath=/soap/if001/GetNationalHolidays&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR012_IF007_CPI_to_MSProjectOnline_GetAuthTokens": {
+          "id": "5eed088b-a877-42f6-ad9a-f1ef327801cc",
+          "symbolicName": "PR012_IF007_CPI_to_MSProjectOnline_GetAuthTokens",
+          "name": "PR012_IF007_CPI_to_MSProjectOnline_GetAuthTokens",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR006_IF001_BS_SoapUI_to_BS_GeopluginNet_IpToLocation": {
+          "id": "637b1c82-5d6a-443e-b90a-5af1d3e4098d",
+          "symbolicName": "PR006_IF001_BS_SoapUI_to_BS_GeopluginNet_IpToLocation",
+          "name": "PR006_IF001_BS_SoapUI_to_BS_GeopluginNet_IpToLocation",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if001/iptolocation"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if001/iptolocation",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF001_BS_SoapUI_to_BS_GeopluginNet_IpToLocation&servicePath=/soap/pr006/if001/iptolocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF001_BS_SoapUI_to_BS_GeopluginNet_IpToLocation&servicePath=/soap/pr006/if001/iptolocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "Webbrowser_to_CodeInterpreter_InterpretCodeAtRuntime": {
+          "id": "6403bd61-fa24-4ea4-9798-c3810b3c8976",
+          "symbolicName": "Webbrowser_to_CodeInterpreter_InterpretCodeAtRuntime",
+          "name": "Webbrowser_to_CodeInterpreter_InterpretCodeAtRuntime",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/coderunner"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/coderunner",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF013_PartnerDirectory_Test": {
+          "id": "69b36dec-69b0-4be6-990f-ae57cf7ba872",
+          "symbolicName": "PR004_IF013_PartnerDirectory_Test",
+          "name": "PR004_IF013_PartnerDirectory_Test",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR001_IF004_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup": {
+          "id": "6df76f06-e416-4324-9d8d-4c43ff463c01",
+          "symbolicName": "PR001_IF004_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "name": "PR001_IF004_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/IF004/geolookup"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/IF004/geolookup",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF004_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/IF004/geolookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF004_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/IF004/geolookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF1502_Properties": {
+          "id": "6f10b3bf-63a4-46e8-8add-93779d7d1432",
+          "symbolicName": "PR004_IF1502_Properties",
+          "name": "PR004_IF1502_Properties",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF014_SoapUI_to_BS_GeoPluginNet_JKTest": {
+          "id": "6f1f9e78-301d-4cf1-93c4-ba07a9e34093",
+          "symbolicName": "IF014_SoapUI_to_BS_GeoPluginNet_JKTest",
+          "name": "PR005_IF014_SoapUI_to_BS_GeoPluginNet_JKTest",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if014/JKTest"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if014/JKTest",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF014_SoapUI_to_BS_GeoPluginNet_JKTest&servicePath=/soap/if014/JKTest&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF014_SoapUI_to_BS_GeoPluginNet_JKTest&servicePath=/soap/if014/JKTest&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF028_SOAPUI_to_BS_HetnerSftp_Exercise1SOAPtoSFTP": {
+          "id": "724224d2-578f-4b32-939c-889050fa4c04",
+          "symbolicName": "IF028_SOAPUI_to_BS_HetnerSftp_Exercise1SOAPtoSFTP",
+          "name": "PR005_IF028_SOAPUI_to_BS_HetnerSftp_Exercise1SOAPtoSFTP",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if028/Exercise1SOAPtoSFTP"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if028/Exercise1SOAPtoSFTP",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF028_SOAPUI_to_BS_HetnerSftp_Exercise1SOAPtoSFTP&servicePath=/soap/if028/Exercise1SOAPtoSFTP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF028_SOAPUI_to_BS_HetnerSftp_Exercise1SOAPtoSFTP&servicePath=/soap/if028/Exercise1SOAPtoSFTP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "Webbrowser_to_CPI_SystemMonitor_RealcoreDashboard": {
+          "id": "74b4fb10-14cb-44b4-9b4c-1064d7c846e6",
+          "symbolicName": "Webbrowser_to_CPI_SystemMonitor_RealcoreDashboard",
+          "name": "Webbrowser_to_CPI_SystemMonitor_RealcoreDashboard",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/endpoints",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/shell",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/artifacts",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/dashboard",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/diffutils",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/view/*",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/securitymaterial",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/scheduler",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/status",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/alertrules"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/endpoints",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/shell",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/artifacts",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/dashboard",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/diffutils",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/view/*",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/securitymaterial",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/scheduler",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/status",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/realcore/cpidash/alertrules",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF003_BS_OData_to_BS_Mail_SendMail": {
+          "id": "75b9ff4f-2d62-49d2-ba18-144cc8833d90",
+          "symbolicName": "PR004_IF003_BS_OData_to_BS_Mail_SendMail",
+          "name": "PR004_IF003_BS_OData_to_BS_Mail_SendMail",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR012_IF005_RH2240_to_MultiTarget_ORDERS05": {
+          "id": "78d9ae85-5382-4c49-a68b-ddec0c6458f5",
+          "symbolicName": "PR012_IF005_RH2240_to_MultiTarget_ORDERS05",
+          "name": "PR012_IF005_RH2240_to_MultiTarget_ORDERS05",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF016_SoapUI_to_BS_GeoPluginNet_BS_NagerAt": {
+          "id": "7909181b-de59-47cc-8209-bdd8d7f5f715",
+          "symbolicName": "IF016_SoapUI_to_BS_GeoPluginNet_BS_NagerAt",
+          "name": "PR005_IF016_SoapUI_to_BS_GeoPluginNet_BS_NagerAt",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/SOAP/IF016/NagerAt"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/SOAP/IF016/NagerAt",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF016_SoapUI_to_BS_GeoPluginNet_BS_NagerAt&servicePath=/SOAP/IF016/NagerAt&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF016_SoapUI_to_BS_GeoPluginNet_BS_NagerAt&servicePath=/SOAP/IF016/NagerAt&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "CPI_to_Mailserver_TriggerOnDeployment": {
+          "id": "79ba95fc-0974-4f36-979c-d22c4a920da5",
+          "symbolicName": "CPI_to_Mailserver_TriggerOnDeployment",
+          "name": "CPI_to_Mailserver_TriggerOnDeployment",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/deploymenthandler"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/deploymenthandler",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF023_REST_to_SFTP_CreateFile": {
+          "id": "7ac5fad2-9ba2-45d0-a748-6cbe2d9cbfaa",
+          "symbolicName": "PR004_IF023_REST_to_SFTP_CreateFile",
+          "name": "PR004_IF023_REST_to_SFTP_CreateFile",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/sftp/sendfile"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/sftp/sendfile",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF026_CPI_FileSystem": {
+          "id": "7b519602-5941-4fb7-b3d0-1013061ca821",
+          "symbolicName": "PR004_IF026_CPI_FileSystem",
+          "name": "PR004_IF026_CPI_FileSystem",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/muni/cpifilesystemdownload/*",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/muni/cpifilesystem/*"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/muni/cpifilesystemdownload/*",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/muni/cpifilesystem/*",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF002_TestTanja_Weather": {
+          "id": "803ea548-a967-4696-abb9-16cf66073f64",
+          "symbolicName": "IF002_TestTanja_Weather",
+          "name": "PR004_IF009_TestTanja_Weather",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/GetWeather"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/GetWeather",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF002_TestTanja_Weather&servicePath=/Soap/GetWeather&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF002_TestTanja_Weather&servicePath=/Soap/GetWeather&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF001_TestTanja": {
+          "id": "81af4042-5fc4-42cb-8c83-4122e1a7f487",
+          "symbolicName": "IF001_TestTanja",
+          "name": "PR002_IF002_BS_CPI_to_BS_CPI_DatastoreToPR002IF003",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF035_SoapUI_to_Hetzner_URLRequest": {
+          "id": "859fbe94-1d9c-4367-91aa-e051767c68f6",
+          "symbolicName": "IF035_SoapUI_to_Hetzner_URLRequest",
+          "name": "PR005_IF035_SoapUI_to_Hetzner_URLRequest",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if035/URLRequest"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if035/URLRequest",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF035_SoapUI_to_Hetzner_URLRequest&servicePath=/soap/if035/URLRequest&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF035_SoapUI_to_Hetzner_URLRequest&servicePath=/soap/if035/URLRequest&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR005_IF042_CH_DataStoreOperations_Test": {
+          "id": "8742f6a1-6d34-488e-bf9b-bb70a850e5ac",
+          "symbolicName": "PR005_IF042_CH_DataStoreOperations_Test",
+          "name": "PR005_IF042_CH_DataStoreOperations_Test",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR001_IF002_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup": {
+          "id": "89b5a2ea-5823-4190-b7f1-3783bff7ac22",
+          "symbolicName": "PR001_IF002_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "name": "PR001_IF002_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if002/geoiplookup"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if002/geoiplookup",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF002_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if002/geoiplookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF002_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if002/geoiplookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "Webbrowser_to_CPI_TSIM_TheScheduledIFlowMonitor": {
+          "id": "8d479d84-6ee6-4d06-bbb9-7b71ed63b913",
+          "symbolicName": "Webbrowser_to_CPI_TSIM_TheScheduledIFlowMonitor",
+          "name": "Webbrowser_to_CPI_TSIM_TheScheduledIFlowMonitor",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/tsim"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/tsim",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF020_TEST_FILE_UPLOAD": {
+          "id": "8e10ac88-5ef1-4c08-8db2-2f8a4d097a8d",
+          "symbolicName": "PR004_IF020_TEST_FILE_UPLOAD",
+          "name": "PR004_IF020_TEST_FILE_UPLOAD",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF015_SoapUI_to_BS_GeoPluginNet_GetLocationFromIP": {
+          "id": "9050c2fb-e2f4-4579-9c90-7751ffe8a7fb",
+          "symbolicName": "IF015_SoapUI_to_BS_GeoPluginNet_GetLocationFromIP",
+          "name": "PR005_IF015_SoapUI_to_BS_GeoPluginNet_GetLocationFromIP",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if015/GetLocationFromIP"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if015/GetLocationFromIP",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF015_SoapUI_to_BS_GeoPluginNet_GetLocationFromIP&servicePath=/soap/if015/GetLocationFromIP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF015_SoapUI_to_BS_GeoPluginNet_GetLocationFromIP&servicePath=/soap/if015/GetLocationFromIP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR012_IF004_RH2240_to_CPI_GenericIdocHandler": {
+          "id": "94ff0d48-00ec-42e1-8d06-1a92de1ccca9",
+          "symbolicName": "PR012_IF004_RH2240_to_CPI_GenericIdocHandler",
+          "name": "PR012_IF004_RH2240_to_CPI_GenericIdocHandler",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/pr012/if004/ORDERS05"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/pr012/if004/ORDERS05",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF040_SoapUI_to_BS_HetznerSftp": {
+          "id": "951cf92b-4f14-47b7-ba0c-5d315f95555d",
+          "symbolicName": "IF040_SoapUI_to_BS_HetznerSftp",
+          "name": "PR005_IF040_SoapUI_to_BS_HetznerSftp",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if040/BS_HetznerSftp"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if040/BS_HetznerSftp",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF040_SoapUI_to_BS_HetznerSftp&servicePath=/soap/if040/BS_HetznerSftp&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF040_SoapUI_to_BS_HetznerSftp&servicePath=/soap/if040/BS_HetznerSftp&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF003_Authentication": {
+          "id": "a13f7db1-fdb9-4fbc-ad8e-946d5df84ef9",
+          "symbolicName": "IF003_Authentication",
+          "name": "PR002_IF001_BS_RH2_to_BS_CPI_TransferARTMAS",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/artmas"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/artmas",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF015_TEST_FILE_UPLOAD": {
+          "id": "a61a517c-b588-4456-8b05-33445ca44bf6",
+          "symbolicName": "PR004_IF015_TEST_FILE_UPLOAD",
+          "name": "PR004_IF015_TEST_FILE_UPLOAD",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "Webbrowser_to_KarafShall_ExecuteCommandAtRuntime": {
+          "id": "a841fa6b-b0d0-4eab-92ce-39e7875892d9",
+          "symbolicName": "Webbrowser_to_KarafShall_ExecuteCommandAtRuntime",
+          "name": "Webbrowser_to_KarafShall_ExecuteCommandAtRuntime",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/karafshell"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr009/karafshell",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF007_local_integration_test": {
+          "id": "abad03fd-50ec-45f5-ad99-cccc23c9f3fd",
+          "symbolicName": "PR004_IF007_local_integration_test",
+          "name": "PR004_IF007_local_integration_test",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR010_001_Tester_to_BrokenSystem_Datatransmission": {
+          "id": "ad1995eb-8265-4947-9d06-55489e0969a0",
+          "symbolicName": "PR010_001_Tester_to_BrokenSystem_Datatransmission",
+          "name": "PR010_IF001_Tester_to_BrokenSystem_Datatransmission",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr010/if001/Datatransmission"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr010/if001/Datatransmission",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF016_OData_to_Mail": {
+          "id": "b014a55d-e1b2-41e0-874f-804604d459e9",
+          "symbolicName": "PR004_IF016_OData_to_Mail",
+          "name": "PR004_IF016_OData_to_Mail",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF006_SOAP_to_SOAP_OpenWeather": {
+          "id": "b35ff0ad-f722-46de-b41b-7255138b939d",
+          "symbolicName": "IF006_SOAP_to_SOAP_OpenWeather",
+          "name": "PR004_IF006_SOAP_to_SOAP_OpenWeather",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/GetTemperature"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/GetTemperature",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF006_SOAP_to_SOAP_OpenWeather&servicePath=/Soap/GetTemperature&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF006_SOAP_to_SOAP_OpenWeather&servicePath=/Soap/GetTemperature&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR010_IF002_CPI_to_CPI_MessageStoreHandler": {
+          "id": "b55d8462-bdae-4f06-8a0c-376fc471dac7",
+          "symbolicName": "PR010_IF002_CPI_to_CPI_MessageStoreHandler",
+          "name": "PR010_IF002_CPI_to_CPI_MessageStoreHandler",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF018_SoapUI_to_BS_TronaldDumpIo_QuotesOfTrump": {
+          "id": "b5d762b9-450f-4c45-aa05-f5dc0aaf8e08",
+          "symbolicName": "IF018_SoapUI_to_BS_TronaldDumpIo_QuotesOfTrump",
+          "name": "PR005_IF018_SoapUI_to_BS_TronaldDumpIo_QuotesOfTrump",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if018/QuotesOfTrump"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if018/QuotesOfTrump",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF018_SoapUI_to_BS_TronaldDumpIo_QuotesOfTrump&servicePath=/soap/if018/QuotesOfTrump&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF018_SoapUI_to_BS_TronaldDumpIo_QuotesOfTrump&servicePath=/soap/if018/QuotesOfTrump&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF014_CH_DynamicDirectory": {
+          "id": "b7d859e4-4010-465d-90b3-494afbf84424",
+          "symbolicName": "PR004_IF014_CH_DynamicDirectory",
+          "name": "PR004_IF014_CH_DynamicDirectory",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR001_IF007_BS_SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard": {
+          "id": "b8716c46-df78-4ff1-a7fb-fc45c9f08a59",
+          "symbolicName": "PR001_IF007_BS_SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard",
+          "name": "PR001_IF007_BS_SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if007/SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if007/SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF007_BS_SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard&servicePath=/soap/pr001/if007/SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF007_BS_SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard&servicePath=/soap/pr001/if007/SoapUI_to_BS_HetznerSftp_SendInfoToMessageBoard&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR006_IF006_BS_SoapUI_to_BS_HetznerSftp_IPtoFile": {
+          "id": "bcac2e5c-feba-43ae-8442-31bb27b92dcd",
+          "symbolicName": "PR006_IF006_BS_SoapUI_to_BS_HetznerSftp_IPtoFile",
+          "name": "PR006_IF006_BS_SoapUI_to_BS_HetznerSftp_IPtoFile",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if006/iptofile"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if006/iptofile",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF006_BS_SoapUI_to_BS_HetznerSftp_IPtoFile&servicePath=/soap/pr006/if006/iptofile&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF006_BS_SoapUI_to_BS_HetznerSftp_IPtoFile&servicePath=/soap/pr006/if006/iptofile&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF039_FirstFlow_Stork": {
+          "id": "c1fbee9d-1b5f-4443-9441-1c342119e37c",
+          "symbolicName": "IF039_FirstFlow_Stork",
+          "name": "PR005_IF039_FirstFlow_Stork",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/IF039/getExchangeRatesECB"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/IF039/getExchangeRatesECB",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF010_DSAG_Showcase_Test": {
+          "id": "c31c0e15-bd8c-4399-a30e-98811857662f",
+          "symbolicName": "IF010_DSAG_Showcase_Test",
+          "name": "PR004_IF010_DSAG_Showcase_Test",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/artmas"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/artmas",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF010_DSAG_Showcase_Test&servicePath=/Soap/artmas&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF010_DSAG_Showcase_Test&servicePath=/Soap/artmas&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR006_IF002_BS_SoupUI_to_BS_GeopluginNET_IpToLocation": {
+          "id": "c8e1c8c6-10df-4a0d-ac8a-f2c62ff7f27f",
+          "symbolicName": "PR006_IF002_BS_SoupUI_to_BS_GeopluginNET_IpToLocation",
+          "name": "PR006_IF002_BS_SoupUI_to_BS_GeopluginNET_IpToLocation",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/SOAP/pr006/if002/IpToLocation"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/SOAP/pr006/if002/IpToLocation",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF002_BS_SoupUI_to_BS_GeopluginNET_IpToLocation&servicePath=/SOAP/pr006/if002/IpToLocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF002_BS_SoupUI_to_BS_GeopluginNET_IpToLocation&servicePath=/SOAP/pr006/if002/IpToLocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR001_IF006_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup": {
+          "id": "c9076e3f-e0be-4c4c-901c-18531bafbe66",
+          "symbolicName": "PR001_IF006_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "name": "PR001_IF006_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if006/geoiplookup"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if006/geoiplookup",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF006_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if006/geoiplookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF006_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if006/geoiplookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "Retrieving_Current_time": {
+          "id": "c9aa6f07-4b82-4f22-8cc3-64b329e5b7f0",
+          "symbolicName": "Retrieving_Current_time",
+          "name": "Retrieving Current time",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR006_IF005_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation": {
+          "id": "ca2aa67c-3449-4f71-8ed3-6c2f63d054b7",
+          "symbolicName": "PR006_IF005_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation",
+          "name": "PR006_IF005_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/IF005/IPtoLocation"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/IF005/IPtoLocation",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF005_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation&servicePath=/soap/IF005/IPtoLocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF005_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation&servicePath=/soap/IF005/IPtoLocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF006_BS_CPI_to_BS_GMail_CPIStatusReport": {
+          "id": "cac0c8b9-0523-4956-83b6-d3fc6c65e54a",
+          "symbolicName": "PR004_IF006_BS_CPI_to_BS_GMail_CPIStatusReport",
+          "name": "PR004_IF006_BS_CPI_to_BS_GMail_CPIStatusReport",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR004_IF004_BS_CPI_to_BS_GMail_CPIStatusReport": {
+          "id": "cd99327f-2a61-4cab-9e45-d4cef7dfdb45",
+          "symbolicName": "PR004_IF004_BS_CPI_to_BS_GMail_CPIStatusReport",
+          "name": "PR004_IF004_BS_CPI_to_BS_GMail_CPIStatusReport",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "DataStoreOperations_Exemplar": {
+          "id": "cdd75a8b-7793-40a5-9b31-d247ef5541a4",
+          "symbolicName": "DataStoreOperations_Exemplar",
+          "name": "Data Store Operations",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "IF013_SoapUI_to_BS_GeoPluginNet_GetLocastionFromIP": {
+          "id": "cf024668-e310-4831-9241-9eefd0dfafc8",
+          "symbolicName": "IF013_SoapUI_to_BS_GeoPluginNet_GetLocastionFromIP",
+          "name": "PR005_IF013_SoapUI_to_BS_GeoPluginNet_GetLocastionFromIP",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if013/GetLocastionFromIP"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if013/GetLocastionFromIP",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF013_SoapUI_to_BS_GeoPluginNet_GetLocastionFromIP&servicePath=/soap/if013/GetLocastionFromIP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF013_SoapUI_to_BS_GeoPluginNet_GetLocastionFromIP&servicePath=/soap/if013/GetLocastionFromIP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR001_IF001_Developer_to_Testtool_PlaygroundInterface": {
+          "id": "cf1fd020-6210-4960-9f01-7c4e2232566d",
+          "symbolicName": "PR001_IF001_Developer_to_Testtool_PlaygroundInterface",
+          "name": "PR001_IF001_Developer_to_Testtool_PlaygroundInterface",
+          "endpointsFlat": null,
+          "endpointsDetailed": [
+            
+          ]
+        },
+        "PR006_IF003_BS_SoapUI_to_BS_GeopluginNet_IpToLocation": {
+          "id": "cfa5a3bc-3ac2-4877-b72e-d9d82379960f",
+          "symbolicName": "PR006_IF003_BS_SoapUI_to_BS_GeopluginNet_IpToLocation",
+          "name": "PR006_IF003_BS_SoapUI_to_BS_GeopluginNet_IpToLocation",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if003/iptolocation"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if003/iptolocation",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF003_BS_SoapUI_to_BS_GeopluginNet_IpToLocation&servicePath=/soap/pr006/if003/iptolocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF003_BS_SoapUI_to_BS_GeopluginNet_IpToLocation&servicePath=/soap/pr006/if003/iptolocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF024_CH_GetLocationFromIP": {
+          "id": "d390903e-95d3-49d3-81f4-b25372ffb768",
+          "symbolicName": "IF024_CH_GetLocationFromIP",
+          "name": "PR005_IF024_CH_GetLocationFromIP",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/IF24/GetLocationFromIP"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/IF24/GetLocationFromIP",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF024_CH_GetLocationFromIP&servicePath=/soap/IF24/GetLocationFromIP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF024_CH_GetLocationFromIP&servicePath=/soap/IF24/GetLocationFromIP&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR001_IF001_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup": {
+          "id": "d50a731a-4477-4aaf-afcc-2b5e9fefe9bd",
+          "symbolicName": "PR001_IF001_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "name": "PR001_IF001_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if001/geoiplookup"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr001/if001/geoiplookup",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF001_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if001/geoiplookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR001_IF001_BS_SoapUI_to_BS_GeoPluginNet_IpAddressLookup&servicePath=/soap/pr001/if001/geoiplookup&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF001_BS_Soap_to_BS_Mail_SendOrderMail": {
+          "id": "d8b36715-2779-465e-abf5-0976e335b3b7",
+          "symbolicName": "IF001_BS_Soap_to_BS_Mail_SendOrderMail",
+          "name": "IF001_BS_Soap_to_BS_Mail_SendOrderMail",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/PR007/IF001/SoapToMail"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/PR007/IF001/SoapToMail",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF001_BS_Soap_to_BS_Mail_SendOrderMail&servicePath=/soap/PR007/IF001/SoapToMail&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF001_BS_Soap_to_BS_Mail_SendOrderMail&servicePath=/soap/PR007/IF001/SoapToMail&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF012_ProcessDirectAdapter_Test": {
+          "id": "d8bfd8ac-a6b6-46e5-a35e-3196625c860c",
+          "symbolicName": "PR004_IF012_ProcessDirectAdapter_Test",
+          "name": "PR004_IF012_ProcessDirectAdapter_Test",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/PR004_IF012_ProcessDirectAdapter_Test"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/PR004_IF012_ProcessDirectAdapter_Test",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR004_IF012_ProcessDirectAdapter_Test&servicePath=/PR004_IF012_ProcessDirectAdapter_Test&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR004_IF012_ProcessDirectAdapter_Test&servicePath=/PR004_IF012_ProcessDirectAdapter_Test&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF025_REST_to_Groovy": {
+          "id": "e4010615-a1c8-457e-a36a-f4a93e9cc8f5",
+          "symbolicName": "PR004_IF025_REST_to_Groovy",
+          "name": "PR004_IF025_REST_to_Groovy",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/groovy/muni/test01"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/groovy/muni/test01",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR012_IF006_RFC_Test": {
+          "id": "e5d3717c-42a3-4b2e-b1d9-f17b3f8a5b5b",
+          "symbolicName": "PR012_IF006_RFC_Test",
+          "name": "PR012_IF006_RFC_Test",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if006/rfctest"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if006/rfctest",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF026_CH_SoapUI_2_BS_CoinDeskCom": {
+          "id": "e7bc2304-0b71-43f9-883f-0d0a967c4813",
+          "symbolicName": "IF026_CH_SoapUI_2_BS_CoinDeskCom",
+          "name": "PR005_IF026_CH_SoapUI_2_BS_CoinDeskCom",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if026/SoapUI_2_BS_CoinDeskCom"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/if026/SoapUI_2_BS_CoinDeskCom",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF026_CH_SoapUI_2_BS_CoinDeskCom&servicePath=/soap/if026/SoapUI_2_BS_CoinDeskCom&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF026_CH_SoapUI_2_BS_CoinDeskCom&servicePath=/soap/if026/SoapUI_2_BS_CoinDeskCom&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR006_IF004_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation": {
+          "id": "f061979f-d5fb-48d9-a809-2f100da63969",
+          "symbolicName": "PR006_IF004_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation",
+          "name": "PR006_IF004_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if004/iptolocation"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/pr006/if004/iptolocation",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF004_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation&servicePath=/soap/pr006/if004/iptolocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF004_BS_SoapUI_to_BS_GeoPluginNet_IPtoLocation&servicePath=/soap/pr006/if004/iptolocation&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "CPI_FileSystem_Explorer": {
+          "id": "f2a8a561-b091-4da0-9a84-90bdc7f9a22f",
+          "symbolicName": "CPI_FileSystem_Explorer",
+          "name": "CPI FileSystem Explorer",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/amba/cpifilesystemdownload/*",
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/amba/cpifilesystem/*"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/amba/cpifilesystemdownload/*",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/amba/cpifilesystem/*",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR012_IF002_Telegram_to_CPI_PasswordSelfService": {
+          "id": "f4faf30e-25af-4df0-b999-c78d85ca320c",
+          "symbolicName": "PR012_IF002_Telegram_to_CPI_PasswordSelfService",
+          "name": "PR012_IF002_Telegram_to_CPI_PasswordSelfService",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if002/passwordselfservice"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/pr012/if002/passwordselfservice",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "PR004_IF024_REST_to_XSLT": {
+          "id": "f5105ac3-3046-4615-9af2-90f195b16e85",
+          "symbolicName": "PR004_IF024_REST_to_XSLT",
+          "name": "PR004_IF024_REST_to_XSLT",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/xslt/testing01"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/xslt/testing01",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        },
+        "IF001_Bestellinfo_zu_Tweet": {
+          "id": "f5f486a8-b67e-41d2-98ce-6c452b5c2c66",
+          "symbolicName": "IF001_Bestellinfo_zu_Tweet",
+          "name": "PR003_IF001_Bestellinfo_zu_Tweet",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/SoapToTweetGateway"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/SoapToTweetGateway",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF001_Bestellinfo_zu_Tweet&servicePath=/SoapToTweetGateway&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF001_Bestellinfo_zu_Tweet&servicePath=/SoapToTweetGateway&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR006_IF008_BS_SoapUI_to_BS_HetznerSftp_IPtoFile": {
+          "id": "f6744e6b-793a-4b79-a1a6-d9691524560b",
+          "symbolicName": "PR006_IF008_BS_SoapUI_to_BS_HetznerSftp_IPtoFile",
+          "name": "PR006_IF008_BS_SoapUI_to_BS_HetznerSftp_IPtoFile",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/IF008/IPtoFile"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/soap/IF008/IPtoFile",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF008_BS_SoapUI_to_BS_HetznerSftp_IPtoFile&servicePath=/soap/IF008/IPtoFile&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=PR006_IF008_BS_SoapUI_to_BS_HetznerSftp_IPtoFile&servicePath=/soap/IF008/IPtoFile&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "IF007_SOAP_to_AmznUrlBuilder": {
+          "id": "f7dd0194-dbaa-47dd-87e9-bdf3baf3e82b",
+          "symbolicName": "IF007_SOAP_to_AmznUrlBuilder",
+          "name": "PR002_IF003_BS_CPI_to_BS_RH2_AmazonLookup",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/AmznSignerEcho"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/cxf/Soap/AmznSignerEcho",
+                "type": "ENTRY_POINT"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF007_SOAP_to_AmznUrlBuilder&servicePath=/Soap/AmznSignerEcho&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=true",
+                "type": "DEFINITION_WSDL"
+              },
+              {
+                "url": "https://p0401-tmn.hci.eu1.hana.ondemand.com/Operations/api/WSDLDownload?artifactName=IF007_SOAP_to_AmznUrlBuilder&servicePath=/Soap/AmznSignerEcho&domainName=hcisbp.eu1.hana.ondemand.com&includePolicies=false",
+                "type": "DEFINITION_WSDL"
+              }
+            ]
+          ]
+        },
+        "PR004_IF028_Mapping_Scenario": {
+          "id": "fca69972-7a32-4ce6-a0c9-d3e568ca0bb3",
+          "symbolicName": "PR004_IF028_Mapping_Scenario",
+          "name": "PR004_IF028_Mapping_Scenario",
+          "endpointsFlat": [
+            "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/muni/mapping"
+          ],
+          "endpointsDetailed": [
+            [
+              {
+                "url": "https://p0401-iflmap.hcisbp.eu1.hana.ondemand.com/http/muni/mapping",
+                "type": "ENTRY_POINT"
+              }
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}
