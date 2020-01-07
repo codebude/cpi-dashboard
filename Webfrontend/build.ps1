@@ -130,7 +130,7 @@ gc $inputfile | Select-String -Pattern $reg -AllMatches | ForEach-Object {
         $token="<style type='text/css'>"+$inlineContent+"</style>"
     } else {
         #js
-        if ($url -ne "../../status.json" -and $url -ne "../../securitymaterial.json" -and $url -ne "../../artifacts.json" -and $url -ne "../../alertrules.json" -and $url -ne "../../scheduler.json" -and $url -ne "../../iFlowPackageContent.json" -and $url -ne "../../diffResult.json" -and $url -ne "status.json" -and $url -ne "securitymaterial.json" -and $url -ne "artifacts.json" -and $url -ne "alertrules.json" -and $url -ne "scheduler.json" -and $url -ne "iFlowPackageContent.json" -and $url -ne "diffResult.json") {
+        if ($url -ne "../../status.json" -and $url -ne "../../securitymaterial.json" -and $url -ne "../../artifacts.json" -and $url -ne "../../alertrules.json" -and $url -ne "../../scheduler.json" -and $url -ne "../../iFlowPackageContent.json" -and $url -ne "../../diffResult.json" -and $url -ne "status.json" -and $url -ne "securitymaterial.json" -and $url -ne "artifacts.json" -and $url -ne "alertrules.json" -and $url -ne "scheduler.json" -and $url -ne "iFlowPackageContent.json" -and $url -ne "diffResult.json" -and $url -ne "versionHistory.json" -and $url -ne "endpoints.json") {
 			Write-Host "Resolving ($url)"
             $token="<script type='text/javascript'>"+$inlineContent+"</script>"
         } else {
@@ -179,9 +179,8 @@ if ($mode -eq "integral"){
 	$search = "(?ms)//BEGIN_STATIC_CONTENT.*//END_STATIC_CONTENT"
 	$value = (Get-Content "./dist/staticContent.groovy" -Raw)
 	$replace = "//BEGIN_STATIC_CONTENT`r`n`t$value`r`n`t//END_STATIC_CONTENT"
-	$content=(Get-Content $delStaticContFileWorkingCopy -Raw) -replace $search, $replace
-	Set-Content $delStaticContFileWorkingCopy $content -Encoding UTF8
-	Copy-Item $delStaticContFileWorkingCopy -Destination $delStaticContFile
+	$content=((Get-Content $delStaticContFileWorkingCopy -Raw) -replace $search, $replace)
+	Set-Content $delStaticContFile $content
 	Remove-Item $delStaticContFileWorkingCopy
 }
 
