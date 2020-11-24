@@ -64,7 +64,7 @@ def Message processData(Message message) {
                     //Calculate alert date
                     def alertDate = new Date()
                     use (TimeCategory){
-                        alertDate = alertDate + rule.warn_days_before.hours
+                        alertDate = alertDate + rule.warn_days_before.days
                     }
                     if (alertDate < validUntil){
                         return
